@@ -11,7 +11,7 @@ module.exports = {
         //     })
         // ))
 
-        return m("", m("h1", "BoomaDex"),
+        return m("",
             m("tr",
                 m("td",
                     m("ol", Pokemon.list.map(function(mon) {

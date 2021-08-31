@@ -1,4 +1,5 @@
 var m = require("mithril")
+var Layout = require("./views/Layout")
 var PokemonList = require("./views/PokemonList")
 var Entry = require("./views/Entry")
 
@@ -8,7 +9,7 @@ var Entry = require("./views/Entry")
 m.route(document.body, "/list", {
     "/list" : {
         render: function() {
-            return m(PokemonList)
+            return m(Layout, m(PokemonList))
         }
     }, 
     "/entry/:id" : {
