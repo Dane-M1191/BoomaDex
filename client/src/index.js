@@ -1,14 +1,8 @@
 var m = require("mithril")
 var Layout = require("./views/Layout")
 var PokemonList = require("./views/PokemonList")
+var GenList = require("./views/GenList")
 var Entry = require("./views/Entry")
-// var PokemonSolid = require('./fonts/Pokemon Solid.tff') 
-
-// import './fonts/Pokemon.Solid.tff'; 
-// import './views/Entry';
-
-// m.mount(document.body, PokemonList);
-
 
 m.route(document.body, "/list", {
     "/list" : {
@@ -16,9 +10,14 @@ m.route(document.body, "/list", {
             return m(Layout, m(PokemonList))
         }
     }, 
+    "/list/gen/:id" : {
+        render: function() {
+            return m(Layout, m(GenList))
+        }
+    },
     "/entry/:id" : {
         render: function() {
-            return m(Entry)
+            return m(Layout, m(Entry))
         }
     }
 })

@@ -12,6 +12,9 @@ var Pokemon = {
     gen6: [],
     gen7: [],
     gen8: [],
+    colOne: [],
+    colTwo: [],
+    colThree: [],
 
     loadList: function() {
 
@@ -20,17 +23,11 @@ var Pokemon = {
             url: "https://pokeapi.co/api/v2/pokemon-species?limit=899"  
         })
         .then(function(result) { 
-            Pokemon.list = result.results            
+            Pokemon.list = result.results 
         }).then(function() {
-
-            // console.log(Pokemon.list[333].url.split("/")[6])
-
-
             let i = 0;
 
             for (pokemon of Pokemon.list) {
-
-
                 if (Pokemon.list[i].url.split("/")[6] <= 151) {
                     Pokemon.gen1.push(Pokemon.list[i])
                 } else if (Pokemon.list[i].url.split("/")[6] > 151 && Pokemon.list[i].url.split("/")[6] <= 251) {
@@ -50,14 +47,19 @@ var Pokemon = {
                 }
 
                 i++
-
-
-
             }
-            console.log(Pokemon.gen8[0])
-            console.log(Pokemon.gen8[50])
         })
+    },
 
+    getGen: function(gen) {
+        if (gen == 1) { return this.gen1 }
+        else if (gen == 2) { return this.gen2 }
+        else if (gen == 3) { return this.gen3 }
+        else if (gen == 4) { return this.gen4 }
+        else if (gen == 5) { return this.gen5 }
+        else if (gen == 6) { return this.gen6 }
+        else if (gen == 7) { return this.gen7 }
+        else { return this.gen8 }
     },
 
     setPokemon: function (id) {
@@ -68,12 +70,8 @@ var Pokemon = {
             url: "https://pokeapi.co/api/v2/pokemon-species/" + id
         })
         .then(function(result) { 
-            // Pokemon.setName(result.name)
             Pokemon.setId(result.id)
-            Pokemon.setName(result.name)
-            
-            console.log(result)
-            
+            Pokemon.setName(result.name)            
         })
     },
 
