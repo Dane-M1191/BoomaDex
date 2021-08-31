@@ -11,7 +11,7 @@ module.exports = {
         //     })
         // ))
 
-        return m("",
+        return m("table.center",
             m("tr",
                 m("td",
                     m("ol", Pokemon.list.map(function(mon) {

@@ -18,7 +18,7 @@ module.exports = {
                         m(m.route.Link, {href: "/list/gen/7"}, "Gen 7"),
                         m(m.route.Link, {href: "/list/gen/8"}, "Gen 8")                                         
                     ]),
-                    m(".dex-screen", m("section", vnode.children))
+                    m(".dex-screen", m(".screen-content", vnode.children))
                 )
             )
         )
