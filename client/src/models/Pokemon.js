@@ -56,32 +56,7 @@ var Pokemon = {
         let i = 0
         Pokemon.colOne = []
         Pokemon.colTwo = []
-        Pokemon.colThree = []
-        // for (pokemon of Pokemon.list) {
-        //     if (Pokemon.list[i].url.split("/")[6]  == 1 || Pokemon.list[i].url.split("/")[6] % 3 == 1) {
-        //         Pokemon.colOne.push(Pokemon.list[i])
-        //     } else if (Pokemon.list[i].url.split("/")[6]  == 2 || Pokemon.list[i].url.split("/")[6] % 3 == 2) {
-        //         Pokemon.colTwo.push(Pokemon.list[i])
-        //     } else {
-        //         Pokemon.colThree.push(Pokemon.list[i])
-        //     }
-        //     i++
-        // }
-
-        //----------------Code above works-----------------------------------------------------------------------
-
-
-        // for (pokemon of Pokemon.list) {
-        //     if (Pokemon.list[i].url.split("/")[6]  == 0 || i % 3 == 0) {
-        //         Pokemon.colOne.push(Pokemon.list[i])
-        //     } else if (Pokemon.list[i].url.split("/")[6]  == 1 || i % 3 == 1) {
-        //         Pokemon.colTwo.push(Pokemon.list[i])
-        //     } else {
-        //         Pokemon.colThree.push(Pokemon.list[i])
-        //     }            
-        //     i++
-        // }
-        //----------------this works better---------------------------------------------------------------------------
+        Pokemon.colThree = []       
 
         for (pokemon of monArray) {
             if (monArray[i].url.split("/")[6]  == 1 || i % 3 == 0) {
@@ -93,7 +68,6 @@ var Pokemon = {
             }            
             i++
         }
-
     },
 
     getGen: function(gen) {

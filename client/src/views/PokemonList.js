@@ -33,34 +33,8 @@ module.exports = {
                             "#" + mon.url.split("/")[6] + " " + Pokemon.nameCaps(mon.name))
                         )
                     }))
-                ),
-                    
+                )                    
             )
-        )
-
-
-        
-
-
-
-        //--------------------------------------------------------------------------------------------------------------------------
-
-        // Pokemon.populateColumns()
-
-
-        // return m(".center",
-        //     m(".row",                 
-        //         m(".column", Pokemon.colOne.map(function(mon) {
-        //             return m(".column", m(m.route.Link, {href: "/entry/" + mon.url.split("/")[6], class: ".column-data"}, "#" + mon.url.split("/")[6] + " " + Pokemon.nameCaps(mon.name)))                  
-        //         })),
-        //         m(".column", Pokemon.colTwo.map(function(mon) {
-        //             return m(".column", mon.name)                  
-        //         })),
-        //         m(".column", Pokemon.colThree.map(function(mon) {
-        //             return m(".column", mon.name)                  
-        //         })) 
-        //     )
-        // )
-        
+        )        
     }
 }
