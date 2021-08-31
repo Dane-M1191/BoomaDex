@@ -1,18 +1,40 @@
-@font-face {
+/* @font-face {
     font-family: "PokemonSolid";
     src: local("PokemonSolid"),
       url("./fonts/Pokemon Solid.ttf") format("truetype");
     font-weight: normal;
-  }
+} */
+
+@font-face {
+    font-family: "Pokemon"; 
+    src: url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.eot"); 
+    src: url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.eot?#iefix") format("embedded-opentype"), 
+    url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.woff2") format("woff2"), 
+    url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.woff") format("woff"), 
+    url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.ttf") format("truetype"), 
+    url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.svg#Pokemon") format("svg"); 
+}
+
+@import url(//db.onlinewebfonts.com/c/f4d1593471d222ddebd973210265762a?family=Pokemon);
+
+a, a:visited {
+    color: #000000;
+    text-decoration: none;
+    margin-right: 0px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
 
 body, .button {
     font: normal 16px Verdana;
     margin: 0;
 }
 
-h1 {
-    font-family: 'Pokemon Solid', sans-serif;
-    color: #ffd900;        
+.center {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .dex-border {
@@ -39,25 +61,55 @@ h1 {
     background: #91f2ff;
     border-radius: 70px;
     border: 2px solid #ffffff;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     display: block;
-    margin: 50px;
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
     padding: 8px 15px;
     text-decoration: none;    
+}
+
+/* h1 {
+    font-family: 'Pokemon Solid', sans-serif;
+    color: #ffd900; 
+    font-size: 80px; 
+    margin: 10px;
+    padding: 10px;      
+} */
+
+.header {
+    text-align: center;
+    font-family: 'Pokemon';
+    color: #ffd900; 
+    font-size: 80px; 
+}
+
+nav {
+    text-align: center;
+
+}
+
+.nav-link, .nav-link:visited {
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 60px;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
 }
 
 .screen-content {    
     margin: 10px;
     padding: 10px;
-    border: 5px solid #FFFF00;
 }
 
-.center {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
 td {
-    margin: 50px;
-    padding: 50px;
+    /* margin: 70px; */
+    /* padding:50px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 70px;
+    padding-right: 70px;
 }   

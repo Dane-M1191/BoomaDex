@@ -15,17 +15,17 @@ module.exports = {
             m("tr",
                 m("td",
                     m("ol", Pokemon.list.map(function(mon) {
-                        return m("li", m(m.route.Link, {href: "/entry/" + mon.url.split("/")[6]}, mon.name))
+                        return m("li", m(m.route.Link, {href: "/entry/" + mon.url.split("/")[6]}, Pokemon.nameCaps(mon.name)))
                     }))
                 ),
                 m("td",
                     m("ol", Pokemon.list.map(function(mon) {
-                        return m("li", m(m.route.Link, {href: "/entry/" + mon.url.split("/")[6]}, mon.name))
+                        return m("li", m(m.route.Link, {href: "/entry/" + mon.url.split("/")[6]}, Pokemon.nameCaps(mon.name)))
                     }))
                 ),
                 m("td",
                     m("ol", Pokemon.list.map(function(mon) {
-                        return m("li", m(m.route.Link, {href: "/entry/" + mon.url.split("/")[6]}, mon.name))
+                        return m("li", m(m.route.Link, {href: "/entry/" + mon.url.split("/")[6]}, Pokemon.nameCaps(mon.name)))
                     }))
                 ),
                     

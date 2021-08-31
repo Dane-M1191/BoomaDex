@@ -4,6 +4,14 @@ var Pokemon = {
     id: -1,
     name: "",
     list: [],
+    gen1: [],
+    gen2: [],
+    gen3: [],
+    gen4: [],
+    gen5: [],
+    gen6: [],
+    gen7: [],
+    gen8: [],
 
     loadList: function() {
 
@@ -35,6 +43,10 @@ var Pokemon = {
             console.log(result)
             
         })
+    },
+
+    nameCaps: function (name) {
+        return name.charAt(0).toUpperCase() + name.slice(1);
     },
 
     getId: function() {return this.id},
