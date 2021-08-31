@@ -6,7 +6,7 @@ module.exports = {
     oninit: Pokemon.loadList,
     view: function() {
 
-        Pokemon.populateColumns()
+        Pokemon.populateColumns(Pokemon.list)
 
         return m(".center",
             m(".row",

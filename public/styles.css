@@ -53,13 +53,14 @@ body, .button {
 .dex-screen {
     background: #91f2ff;
     border-radius: 4.5vw;
-    border: 2px solid #ffffff;
+    border: double .62vw  #d4fbff;
     color: rgb(0, 0, 0);
     display: block;
     min-height: 50vh;
     margin-top: 10px;
     margin-left: 4%;
     margin-right: 4%;
+    margin-bottom: 5vw;
     padding: 8px 15px;
     text-decoration: none;    
 }
