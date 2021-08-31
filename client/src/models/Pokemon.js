@@ -20,10 +20,42 @@ var Pokemon = {
             url: "https://pokeapi.co/api/v2/pokemon-species?limit=899"  
         })
         .then(function(result) { 
-            // Pokemon.setName(result.name)
-            Pokemon.list = result.results
-            // console.log(result.results.i.name)
-            // console.log(Pokemon.list)
+            Pokemon.list = result.results            
+        }).then(function() {
+
+            // console.log(Pokemon.list[333].url.split("/")[6])
+
+
+            let i = 0;
+
+            for (pokemon of Pokemon.list) {
+
+
+                if (Pokemon.list[i].url.split("/")[6] <= 151) {
+                    Pokemon.gen1.push(Pokemon.list[i])
+                } else if (Pokemon.list[i].url.split("/")[6] > 151 && Pokemon.list[i].url.split("/")[6] <= 251) {
+                    Pokemon.gen2.push(Pokemon.list[i])
+                } else if (Pokemon.list[i].url.split("/")[6] > 251 && Pokemon.list[i].url.split("/")[6] <= 386) {
+                    Pokemon.gen3.push(Pokemon.list[i])
+                } else if (Pokemon.list[i].url.split("/")[6] > 386 && Pokemon.list[i].url.split("/")[6] <= 493) {
+                    Pokemon.gen4.push(Pokemon.list[i])
+                } else if (Pokemon.list[i].url.split("/")[6] > 493 && Pokemon.list[i].url.split("/")[6] <= 649) {
+                    Pokemon.gen5.push(Pokemon.list[i])
+                } else if (Pokemon.list[i].url.split("/")[6] > 649 && Pokemon.list[i].url.split("/")[6] <= 721) {
+                    Pokemon.gen6.push(Pokemon.list[i])
+                } else if (Pokemon.list[i].url.split("/")[6] > 721 && Pokemon.list[i].url.split("/")[6] <= 809) {
+                    Pokemon.gen7.push(Pokemon.list[i])
+                } else {
+                    Pokemon.gen8.push(Pokemon.list[i])
+                }
+
+                i++
+
+
+
+            }
+            console.log(Pokemon.gen8[0])
+            console.log(Pokemon.gen8[50])
         })
 
     },
