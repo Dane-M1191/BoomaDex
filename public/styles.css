@@ -1,10 +1,3 @@
-/* @font-face {
-    font-family: "PokemonSolid";
-    src: local("PokemonSolid"),
-      url("./fonts/Pokemon Solid.ttf") format("truetype");
-    font-weight: normal;
-} */
-
 @font-face {
     font-family: "Pokemon"; 
     src: url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.eot"); 
@@ -28,7 +21,7 @@ a:hover {
 }
 
 body, .button {
-    font: normal 16px Verdana;
+    font: normal 90% Verdana;
     margin: 0;
 }
 
@@ -39,8 +32,8 @@ body, .button {
 
 .dex-border {
     background-color: #dd0025;
-    width: 100%;
     min-height: 100vh;
+    min-width: 55vh;
     height:100%;
 }
 
@@ -52,8 +45,8 @@ body, .button {
     min-height: 100vh;
     height: 100%;
     padding: 10px;
-    border-left: inset 24px #ff002b;
-    border-right: inset 24px #be0020;
+    border-left: inset 1.5vw #ff002b;
+    border-right: inset 1.5vw #be0020;
     align-content: center;
 }
 
@@ -63,37 +56,31 @@ body, .button {
     border: 2px solid #ffffff;
     color: rgb(0, 0, 0);
     display: block;
+    min-height: 50vh;
     margin-top: 10px;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 4%;
+    margin-right: 4%;
     padding: 8px 15px;
     text-decoration: none;    
 }
-
-/* h1 {
-    font-family: 'Pokemon Solid', sans-serif;
-    color: #ffd900; 
-    font-size: 80px; 
-    margin: 10px;
-    padding: 10px;      
-} */
 
 .header {
     text-align: center;
     font-family: 'Pokemon';
     color: #ffd900; 
-    font-size: 80px; 
+    font-size: 5vw; 
 }
 
 nav {
     text-align: center;
-
 }
 
 .nav-link, .nav-link:visited {
     color: #ffffff;
     text-decoration: none;
-    margin-right: 60px;
+    font-size: 1vw;
+    margin-right: 2vw;
+    margin-left: 2vw;
 }
 
 .nav-link:hover {
@@ -101,15 +88,22 @@ nav {
 }
 
 .screen-content {    
-    margin: 10px;
+    margin: 1vw;
     padding: 10px;
 }
 
-td {
-    /* margin: 70px; */
-    /* padding:50px; */
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 70px;
-    padding-right: 70px;
-}   
+.row {
+    display: flex;
+    text-align: center;
+  }
+  
+  .column {
+    flex: 33%;
+    padding: 5px;
+  }
+
+  .column-data {
+    margin-left: 32%;
+    font-size: .9vw;
+    text-align: left;
+  }

@@ -6,21 +6,21 @@ module.exports = {
     oninit: Pokemon.loadList,
     view: function() {
 
-        return m("table.center",
-            m("tr",
-                m("td",
-                    m("ol", Pokemon.list.map(function(mon) {
-                        return m("li", m(m.route.Link, {href: "/entry/" + mon.url.split("/")[6]}, Pokemon.nameCaps(mon.name)))
+        return m(".center",
+            m(".row",
+                m(".column",
+                    m("", Pokemon.list.map(function(mon) {
+                        return m("p.column-data", m(m.route.Link, {href: "/entry/" + mon.url.split("/")[6]}, "#" + mon.url.split("/")[6] + " " + Pokemon.nameCaps(mon.name)))
                     }))
                 ),
-                m("td",
-                    m("ol", Pokemon.list.map(function(mon) {
-                        return m("li", m(m.route.Link, {href: "/entry/" + mon.url.split("/")[6]}, Pokemon.nameCaps(mon.name)))
+                m(".column",
+                    m("", Pokemon.list.map(function(mon) {
+                        return m("p.column-data", m(m.route.Link, {href: "/entry/" + mon.url.split("/")[6]}, "#" + mon.url.split("/")[6] + " " + Pokemon.nameCaps(mon.name)))
                     }))
                 ),
-                m("td",
-                    m("ol", Pokemon.list.map(function(mon) {
-                        return m("li", m(m.route.Link, {href: "/entry/" + mon.url.split("/")[6]}, Pokemon.nameCaps(mon.name)))
+                m(".column",
+                    m("", Pokemon.list.map(function(mon) {
+                        return m("p.column-data", m(m.route.Link, {href: "/entry/" + mon.url.split("/")[6]}, "#" + mon.url.split("/")[6] + " " + Pokemon.nameCaps(mon.name)))
                     }))
                 ),
                     

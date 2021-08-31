@@ -6,7 +6,7 @@ module.exports = {
     view: function(vnode) {
         return m(".dex-border", 
             m(".dex-inset",
-                m("", m(".header", "BoomaDex"),
+                m(".nav-head", m(".header", "BoomaDex"),
                     m("nav", [
                         m(m.route.Link, {href: "/list", class: "nav-link"}, "Home"),
                         m(m.route.Link, {href: "/list/gen/1", class: "nav-link"}, "Gen 1"),
