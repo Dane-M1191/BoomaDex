@@ -52,7 +52,7 @@ body, .button {
 
 .dex-screen {
     background: #91f2ff;
-    border-radius: 70px;
+    border-radius: 4.5vw;
     border: 2px solid #ffffff;
     color: rgb(0, 0, 0);
     display: block;

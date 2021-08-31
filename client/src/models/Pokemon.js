@@ -1,6 +1,7 @@
 var m = require("mithril")
 
 var Pokemon = {
+    
     id: -1,
     name: "",
     list: [],
@@ -25,8 +26,8 @@ var Pokemon = {
         .then(function(result) { 
             Pokemon.list = result.results 
         }).then(function() {
-            let i = 0;
 
+            let i = 0;
             for (pokemon of Pokemon.list) {
                 if (Pokemon.list[i].url.split("/")[6] <= 151) {
                     Pokemon.gen1.push(Pokemon.list[i])
@@ -45,10 +46,24 @@ var Pokemon = {
                 } else {
                     Pokemon.gen8.push(Pokemon.list[i])
                 }
-
                 i++
             }
         })
+    },
+
+    populateColumns: function () {
+
+        let i = 0
+        for (pokemon of Pokemon.list) {
+            if (Pokemon.list[i].url.split("/")[6]  == 1 || Pokemon.list[i].url.split("/")[6] % 3 == 1) {
+                Pokemon.colOne.push(Pokemon.list[i])
+            } else if (Pokemon.list[i].url.split("/")[6]  == 2 || Pokemon.list[i].url.split("/")[6] % 3 == 2) {
+                Pokemon.colTwo.push(Pokemon.list[i])
+            } else {
+                Pokemon.colThree.push(Pokemon.list[i])
+            }
+            i++
+        }
     },
 
     getGen: function(gen) {
