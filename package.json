@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "mithril": "^2.0.4"
+    "mithril": "^2.0.4",
+    "pokemon-sprites": "github:PokeAPI/sprites"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
