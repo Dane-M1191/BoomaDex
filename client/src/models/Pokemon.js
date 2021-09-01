@@ -4,6 +4,14 @@ var Pokemon = {
     
     id: -1,
     name: "",
+    // class: "",
+    height: "",
+    //decimeters
+    weight: "",
+    //hectograms
+    type1: "",
+    type2: "",
+
     list: [],
     gen1: [],
     gen2: [],
@@ -86,11 +94,28 @@ var Pokemon = {
 
         return m.request({
             method: "GET",
-            url: "https://pokeapi.co/api/v2/pokemon-species/" + id
+            url: "https://pokeapi.co/api/v2/pokemon/" + id
         })
         .then(function(result) { 
             Pokemon.setId(result.id)
-            Pokemon.setName(result.name)            
+            Pokemon.setName(Pokemon.nameCaps(result.name))
+            // Pokemon.setClass()            
+            Pokemon.setHeight(result.height)
+            Pokemon.setWeight(result.weight)
+            Pokemon.setType1(Pokemon.nameCaps(result.types[0].type.name))
+
+            if (result.types[1]){
+                Pokemon.setType2(Pokemon.nameCaps(result.types[1].type.name))
+            } else (Pokemon.setType2("None"))
+
+            console.log(Pokemon.getId() + " " + 
+            Pokemon.getName() + " " + 
+            Pokemon.getHeight() + " " + 
+            Pokemon.getWeight() + " " + 
+            Pokemon.getType1() + " " + 
+            Pokemon.getType2() + " " )
+
+            console.log(result.types)
         })
     },
 
@@ -102,10 +127,22 @@ var Pokemon = {
     setId: function(id) {this.id = id},
 
     getName: function() { return this.name},
-    setName: function(name) {this.name = name}
+    setName: function(name) {this.name = name},
 
-        
+    // getClass: function() { return this.class},
+    // setClass: function(str) {this.class = str},
 
+    getHeight: function() { return this.height},
+    setHeight: function(height) {this.height = height},
+
+    getWeight: function() { return this.weight},
+    setWeight: function(weight) {this.weight = weight},
+
+    getType1: function() { return this.type1},
+    setType1: function(type1) {this.type1 = type1},
+
+    getType2: function() { return this.type2},
+    setType2: function(type2) {this.type2 = type2}      
 }
 
 module.exports = Pokemon

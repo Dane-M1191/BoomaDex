@@ -26,8 +26,8 @@ module.exports = {
                 ), 
                 m(".entry-row", 
                     // m(".entry-col-img2", m("img", {src: "https://i.imgur.com/qETfuqv.png", alt: "bulba"})), 
-                    m(".entry-col-img2", m("img", { src: "./test.png", alt: "awdawd",width: '100', height: '200' })),
-                    m(".entry-col-img2")
+                    m(".entry-col-img2", m("img", { src: "https://i.imgur.com/stUQeV2.jpg", width: '240', height: '150' })),
+                    m(".entry-col-img2", m("img", { src: "https://i.imgur.com/eMU0kjC.jpg", width: '240', height: '150' }))
                 )
             )
                 
