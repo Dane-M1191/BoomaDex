@@ -122,6 +122,12 @@ var Pokemon = {
     nameCaps: function (name) {
         return name.charAt(0).toUpperCase() + name.slice(1);
     },
+    
+    addZeroes: function(id) {
+        if (id < 10) { return "00" + id } 
+        else if (id < 100) { return "0" + id }
+        else { return id }
+    },
 
     getId: function() {return this.id},
     setId: function(id) {this.id = id},
