@@ -27,17 +27,18 @@ module.exports = {
                 ), 
                 m(".entry-row", 
                     m(".entry-col-img2", 
-                        m("img", 
-                            {src: "https://www.serebii.net/swordshield/pokemon/" + Pokemon.addZeroes(window.location.href.split("/")[5])+ ".png", 
-                                width: '240', height: '150' 
+                        m("img"
+                            , {src: "https://www.serebii.net/swordshield/pokemon/" 
+                                + Pokemon.addZeroes(window.location.href.split("/")[5]) + ".png"
+                                , width: '240', height: '150' 
                             }
                         )
-                    ), 
-                    // m(".entry-col-img2", m("img", { src: "https://i.imgur.com/stUQeV2.jpg", width: '240', height: '150' })),
+                    ),
                     m(".entry-col-img2", 
-                        m("img", 
-                            {src: "https://www.serebii.net/Shiny/SWSH/" + Pokemon.addZeroes(window.location.href.split("/")[5])+ ".png", 
-                                width: '240', height: '150' 
+                        m("img"
+                            , {src: "https://www.serebii.net/Shiny/SWSH/" 
+                                + Pokemon.addZeroes(window.location.href.split("/")[5]) + ".png"
+                                , width: '240', height: '150' 
                             }
                         )
                     )

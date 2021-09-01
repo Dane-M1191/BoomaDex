@@ -35,6 +35,16 @@ var Pokemon = {
             Pokemon.list = result.results 
         }).then(function() {
 
+            //ensures gen arrays are empty before populating them.
+            Pokemon.gen1 = []
+            Pokemon.gen2 = []
+            Pokemon.gen3 = []
+            Pokemon.gen4 = []
+            Pokemon.gen5 = []
+            Pokemon.gen6 = []
+            Pokemon.gen7 = []
+            Pokemon.gen8 = []
+
             let i = 0;
             for (pokemon of Pokemon.list) {
                 if (Pokemon.list[i].url.split("/")[6] <= 151) {
