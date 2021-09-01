@@ -133,10 +133,16 @@ var Pokemon = {
     // setClass: function(str) {this.class = str},
 
     getHeight: function() { return this.height},
-    setHeight: function(height) {this.height = height},
+    setHeight: function(height) {
+        //convert decimeters to inches
+        this.height = height * 3.93
+    },
 
     getWeight: function() { return this.weight},
-    setWeight: function(weight) {this.weight = weight},
+    setWeight: function(weight) {
+        //convert hectograms to lbs
+        this.weight = (weight / 4.53)
+    },
 
     getType1: function() { return this.type1},
     setType1: function(type1) {this.type1 = type1},
