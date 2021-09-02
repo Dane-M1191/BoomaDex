@@ -11,6 +11,16 @@ module.exports = {
             Pokemon.setPokemon(window.location.href.split("/")[5])
         }
 
+        var img = true
+        var img2 = true
+        if (Pokemon.evoChain[1]) {
+            img = false
+            
+            if (Pokemon.evoChain[2]) {
+                img2 = false
+            }
+        }
+
         return m(".entry-row",
             m(".entry-col", 
                 m(".entry-row", 
@@ -87,7 +97,132 @@ module.exports = {
                     )                    
                 ),
                 m(".evo-row",
-                    m(".evo-data", "evo text evo text evo text evo text evo text evo text evo text evo text ")
+                    m(".evo-data",
+                        m(".entry-col-img", 
+
+
+
+
+
+
+
+                            // m(".entry-row", 
+                            //     m(".evo-col-img", 
+                            //         m("img.evo-img"
+                            //             , {src: "https://www.serebii.net/swordshield/pokemon/" 
+                            //                 + Pokemon.addZeroes(Pokemon.evoChain[0]) + ".png" 
+                            //             }
+                            //         )
+                            //     ),
+                            //     m(".evo-col-img", 
+                            //         m("img.evo-img"
+                            //             , {src: "https://www.serebii.net/swordshield/pokemon/" 
+                            //                 + Pokemon.addZeroes(Pokemon.evoChain[1]) + ".png" 
+                            //             }
+                            //         )
+                            //     ),
+                            //     m(".evo-col-img", 
+                            //         m("img.evo-img"
+                            //             , {src: "https://www.serebii.net/swordshield/pokemon/" 
+                            //                 + Pokemon.addZeroes(Pokemon.evoChain[2]) + ".png" 
+                            //             }
+                            //         )
+                            //     )
+                            // )
+
+
+
+
+
+
+
+
+                            m(".entry-row", img ? [
+                                m(".evo-col-img", 
+                                    m("img.evo-img"
+                                        , {src: "https://www.serebii.net/swordshield/pokemon/" 
+                                            + Pokemon.addZeroes(Pokemon.evoChain[0]) + ".png" 
+                                        }
+                                    )
+                                )
+                            ] : 
+                            [ img2 ? [
+
+
+                                    m(".evo-col-img", 
+                                        m("img.evo-img"
+                                            , {src: "https://www.serebii.net/swordshield/pokemon/" 
+                                                + Pokemon.addZeroes(Pokemon.evoChain[0]) + ".png" 
+                                            }
+                                        )
+                                    ),
+                                    m(".evo-col-img", 
+                                        m("img.evo-img"
+                                            , {src: "https://www.serebii.net/swordshield/pokemon/" 
+                                                + Pokemon.addZeroes(Pokemon.evoChain[1]) + ".png" 
+                                            }
+                                        )
+                                    )
+                                ] : 
+                                [
+
+                                    m(".evo-col-img", 
+                                        m("img.evo-img"
+                                            , {src: "https://www.serebii.net/swordshield/pokemon/" 
+                                                + Pokemon.addZeroes(Pokemon.evoChain[0]) + ".png" 
+                                            }
+                                        )
+                                    ),
+                                    m(".evo-col-img", 
+                                        m("img.evo-img"
+                                            , {src: "https://www.serebii.net/swordshield/pokemon/" 
+                                                + Pokemon.addZeroes(Pokemon.evoChain[1]) + ".png" 
+                                            }
+                                        )
+                                    ),
+                                    m(".evo-col-img", 
+                                        m("img.evo-img"
+                                            , {src: "https://www.serebii.net/swordshield/pokemon/" 
+                                                + Pokemon.addZeroes(Pokemon.evoChain[2]) + ".png" 
+                                            }
+                                        )
+                                    )
+
+
+
+                                ]   
+                            ] 
+
+
+
+
+
+
+
+                                // m(".evo-col-img", 
+                                //     m("img.evo-img"
+                                //         , {src: "https://www.serebii.net/swordshield/pokemon/" 
+                                //             + Pokemon.addZeroes(Pokemon.evoChain[1]) + ".png" 
+                                //         }
+                                //     )
+                                // ),
+                                // m(".evo-col-img", 
+                                //     m("img.evo-img"
+                                //         , {src: "https://www.serebii.net/swordshield/pokemon/" 
+                                //             + Pokemon.addZeroes(Pokemon.evoChain[2]) + ".png" 
+                                //         }
+                                //     )
+                                // )
+                            )
+
+
+
+
+
+
+
+                        )  
+                    )  
                 )
             )
         )

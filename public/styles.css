@@ -186,16 +186,26 @@ nav {
     margin-bottom: 2px;
 } 
 
+.evo-col-img {
+    flex: 0%;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    border: solid #ffffff;
+}
+
 .evo-data {
     flex: 100%;
     border-radius: 1vw;
-    height: 5vw;
+    height: fit-content;
     padding: 2px;
     margin: .9vw;
     background-color: #464646;
     color: #ffffff;
     border: solid .2vw #000000;
-    text-align: center;
+}
+
+.evo-img {
+    height: 7vw ;
 }
 
 .previous {

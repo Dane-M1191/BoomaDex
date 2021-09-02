@@ -25,6 +25,7 @@ var Pokemon = {
     colOne: [],
     colTwo: [],
     colThree: [],
+    evoChain: [],
 
     loadList: function() {
 
@@ -131,11 +132,13 @@ var Pokemon = {
         .then(m.request({
             method: "GET",
             url: "https://pokeapi.co/api/v2/pokemon-species/" + id
-        }).then(function(result) {
+        })
+        .then(function(result) {
             // console.log(result)
+            let evoURL = result.evolution_chain.url
             Pokemon.setClass(result.genera[7].genus)
 
-            // console.log(result.flavor_text_entries)
+            // console.log(evoURL)
 
             let i = 0
             let j = 0
@@ -147,7 +150,37 @@ var Pokemon = {
                 }
                 i++
             }
+
+            return evoURL
             // console.log(Pokemon.getClass())
+        })
+        .then(function(evoURL) {
+
+            console.log(evoURL)
+            return m.request({
+                method: "GET",
+                url: evoURL
+            })
+            .then(function(result) {
+                // console.log(result)
+
+                Pokemon.evoChain = []
+                // console.log(result.chain.species.url.split("/")[6])
+                Pokemon.evoChain.push(result.chain.species.url.split("/")[6])
+                if (result.chain.evolves_to[0]) {
+                    // result.chain.evolves_to[0].species.url.split("/")[6]
+                    // console.log(result.chain.evolves_to[0].species.url.split("/")[6])
+                    Pokemon.evoChain.push(result.chain.evolves_to[0].species.url.split("/")[6])
+
+                    if (result.chain.evolves_to[0].evolves_to[0]){
+                        // console.log(result.chain.evolves_to[0].evolves_to[0].species.url.split("/")[6])
+                        Pokemon.evoChain.push(result.chain.evolves_to[0].evolves_to[0].species.url.split("/")[6])
+                    }
+                }
+
+                // console.log(Pokemon.evoChain)
+            })
+
         })
         )
     },
