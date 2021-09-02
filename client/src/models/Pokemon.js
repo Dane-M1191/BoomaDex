@@ -4,13 +4,14 @@ var Pokemon = {
     
     id: -1,
     name: "",
-    // class: "",
+    class: "",
     height: "",
     //decimeters
     weight: "",
     //hectograms
     type1: "",
     type2: "",
+    flavorText: "",
 
     list: [],
     gen1: [],
@@ -100,7 +101,7 @@ var Pokemon = {
     },
 
     setPokemon: function (id) {
-        console.log(id)
+        // console.log(id)
 
         return m.request({
             method: "GET",
@@ -118,15 +119,37 @@ var Pokemon = {
                 Pokemon.setType2(Pokemon.nameCaps(result.types[1].type.name))
             } else (Pokemon.setType2("None"))
 
-            console.log(Pokemon.getId() + " " + 
-            Pokemon.getName() + " " + 
-            Pokemon.getHeight() + " " + 
-            Pokemon.getWeight() + " " + 
-            Pokemon.getType1() + " " + 
-            Pokemon.getType2() + " " )
+            // console.log(Pokemon.getId() + " " + 
+            // Pokemon.getName() + " " + 
+            // Pokemon.getHeight() + " " + 
+            // Pokemon.getWeight() + " " + 
+            // Pokemon.getType1() + " " + 
+            // Pokemon.getType2() + " " )
 
-            console.log(result.types)
+            // console.log(result.types)
         })
+        .then(m.request({
+            method: "GET",
+            url: "https://pokeapi.co/api/v2/pokemon-species/" + id
+        }).then(function(result) {
+            // console.log(result)
+            Pokemon.setClass(result.genera[7].genus)
+
+            // console.log(result.flavor_text_entries)
+
+            let i = 0
+            let j = 0
+            for (str of result.flavor_text_entries) {
+                if (str.language.name == "en" && j < 1 && i > 30) {
+                    // console.log( i + " ----- " + str.flavor_text)
+                    Pokemon.setFlavorText(str.flavor_text)
+                    j++
+                }
+                i++
+            }
+            // console.log(Pokemon.getClass())
+        })
+        )
     },
 
     nameCaps: function (name) {
@@ -145,8 +168,8 @@ var Pokemon = {
     getName: function() { return this.name},
     setName: function(name) {this.name = name},
 
-    // getClass: function() { return this.class},
-    // setClass: function(str) {this.class = str},
+    getClass: function() { return this.class},
+    setClass: function(str) {this.class = str},
 
     getHeight: function() { return this.height},
     setHeight: function(height) {
@@ -164,7 +187,10 @@ var Pokemon = {
     setType1: function(type1) {this.type1 = type1},
 
     getType2: function() { return this.type2},
-    setType2: function(type2) {this.type2 = type2}      
+    setType2: function(type2) {this.type2 = type2}, 
+    
+    getFlavorText: function() { return this.flavorText},
+    setFlavorText: function(str) {this.flavorText = str}
 }
 
 module.exports = Pokemon
