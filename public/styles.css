@@ -110,44 +110,97 @@ nav {
 .entry-row {
     display: flex;
     text-align: center;
-    border: solid 2px #808080;
+    /* border: solid 2px #808080; */
     margin-bottom: 2px;
-    min-height: 22.5%;
+    /* min-height: 22.5%; */
+    /* width:max-content */
 }
 
 .entry-row2 {
     display: flex;
     text-align: center;
-    border: solid 2px #808080;
-    height: 30vh
+    /* border: solid 2px #808080; */
+    /* height: 30vh */
+}
+
+.entry-row3 {
+    display: flex;
+    text-align: center;
+    /* border: solid 2px #808080; */
+    margin-bottom: 2px;
+    /* height: 49%; */
+    font-size: 2vw;
 }
 
 .entry-col {
     flex: 100%;
-    padding: 5px;
-    border: solid 2px #000000;
-    margin: 5px;
+    padding: 2px;
+    /* border: solid 2px #000000; */
+    margin: 1px;
 }
 
 .entry-col2 {
     flex: 50%;
     padding: 5px;
-    border: solid 2px #000000;
+    /* border: solid 2px #000000; */
     margin: 5px;
 }
 
 .entry-col-img {
     flex: 50%;
-    padding: 5px;
-    border: solid 2px #000000;
-    height: 30vh;
+    padding: 2px;
+    /* border: solid 2px #000000; */
+    /* height: 30vh; */
     margin: 5px;
 }
 
 .entry-col-img2 {
     flex: 50%;
+    padding: 2px;
+    /* border: solid 2px #000000; */
+    /* height: 19vh; */
+    margin: 1px;
+}
+
+.entry-name {
+    /* display: flex; */
+    text-align: center;
+    /* border: solid 2px #808080; */
+    margin-bottom: 2px;
+    /* height: 49%; */
+    /* font-size: 2.5vw; */
+}
+.entry-data {
+    /* flex: 100%; */
+    padding: 2px;
+    /* border: solid 2px #000000; */
+    margin: 1px;
+    margin-left: 23%;
+    font-size: .99vw;
+    text-align: left;
+}
+
+/* .entry-data2 {
     padding: 5px;
     border: solid 2px #000000;
-    height: 19vh;
     margin: 5px;
+    margin-left: 19%;
+    font-size: 2vw;
+    text-align: left;
+} */
+
+.entry-img {
+    /* height:12vw; */
+    border-radius: 3.5vw;
+    height:14vw;
+    background-color: #464646;
+    border: solid 3px #000000;
+}
+
+.entry-img2 {
+    /* height:12vw; */
+    border-radius: 3.5vw;
+    height:14vw;
+    background-color: #464646;
+    border: solid 3px #ff0000;
 }

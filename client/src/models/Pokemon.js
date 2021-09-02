@@ -150,14 +150,14 @@ var Pokemon = {
 
     getHeight: function() { return this.height},
     setHeight: function(height) {
-        //convert decimeters to inches
-        this.height = height * 3.93
+        //convert decimeters to feet
+        this.height = (height / 3.048).toFixed(1)
     },
 
     getWeight: function() { return this.weight},
     setWeight: function(weight) {
         //convert hectograms to lbs
-        this.weight = (weight / 4.53)
+        this.weight = (weight / 4.53).toFixed(1)
     },
 
     getType1: function() { return this.type1},
