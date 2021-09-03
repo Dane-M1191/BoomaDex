@@ -163,7 +163,7 @@ var Pokemon = {
                     if(result.chain.evolves_to[0].evolution_details[0].trigger.name == "level-up") {
 
                         if(result.chain.evolves_to[0].evolution_details[0].min_level){
-                            Pokemon.evoLevels.push(result.chain.evolves_to[0].evolution_details[0].min_level)
+                            Pokemon.evoLevels.push("Lv. " + result.chain.evolves_to[0].evolution_details[0].min_level)
                         } else if (result.chain.evolves_to[0].evolution_details[0].min_happiness) {
                             Pokemon.evoLevels.push(
                                 "Happiness: " + result.chain.evolves_to[0].evolution_details[0].min_happiness
@@ -192,7 +192,7 @@ var Pokemon = {
                         if(result.chain.evolves_to[0].evolves_to[0].evolution_details[0].trigger.name == "level-up") {
 
                             if(result.chain.evolves_to[0].evolves_to[0].evolution_details[0].min_level){
-                                Pokemon.evoLevels.push(result.chain.evolves_to[0].evolves_to[0].evolution_details[0].min_level)
+                                Pokemon.evoLevels.push("Lv. " + result.chain.evolves_to[0].evolves_to[0].evolution_details[0].min_level)
                             } else if (result.chain.evolves_to[0].evolves_to[0].evolution_details[0].min_happiness) {
                                 Pokemon.evoLevels.push(
                                     "Happiness: " + result.chain.evolves_to[0].evolves_to[0].evolution_details[0].min_happiness
