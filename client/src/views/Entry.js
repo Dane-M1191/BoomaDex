@@ -99,8 +99,6 @@ module.exports = {
                         )
                     ), 
                     m(".entry-col-img", 
-
-
                         m(".entry-row", 
                             m(".entry-col-img2", 
                                 m("img.entry-img"
@@ -117,117 +115,93 @@ module.exports = {
                                 )
                             )
                         )
-
-                        
                     )                    
                 ),
                 m(".evo-row",
                     m(".evo-data",
                         m(".entry-col-img", 
-
                             m(".entry-row", img ? [
                                 m(".evo-col-img", 
-                                    m("img.evo-img2"
-                                        , {src: "https://www.serebii.net/swordshield/pokemon/" 
-                                            + Pokemon.addZeroes(Pokemon.evoChain[0]) + ".png" 
-                                        }
-                                    )
+                                    // m(m.route.Link, {href: "/entry/" + Pokemon.getId()},
+                                        m("img.evo-img2", 
+                                            {
+                                                src: "https://www.serebii.net/swordshield/pokemon/" 
+                                                + Pokemon.addZeroes(Pokemon.evoChain[0]) + ".png"
+                                            }
+                                        )
+                                    // )
                                 )
                             ] : 
-                            [ img2 ? [
-
-
+                            [ img2 ? 
+                                [
                                     m(".evo-col-img", 
-                                        m("img.evo-img1"
-                                            , {src: "https://www.serebii.net/swordshield/pokemon/" 
+                                        m("img.evo-img1", 
+                                            {
+                                                src: "https://www.serebii.net/swordshield/pokemon/" 
                                                 + Pokemon.addZeroes(Pokemon.evoChain[0]) + ".png" 
                                             }
                                         )
-                                    ),
-                                    //---------------testing arrows----------------------------------
+                                    ),                                    
                                     m(".evo-col-arrow", 
-                                        m(".evo-row", 
-                                            
-                                            m("img.evo-arrow-right"
-                                                , {src: "https://i.imgur.com/jwr0a97.png" 
-                                                }
-                                            ),
+                                        m(".evo-row",                                             
+                                            m("img.evo-arrow-right", {src: "https://i.imgur.com/jwr0a97.png"})
                                         ),
                                         m(".evo-row", 
-                                            m(".evo-level", "Lv. x")
+                                            m(".evo-level", Pokemon.evoLevels[0])
                                         )
-                                    ),
-                                    //----------------------------------------------------------------
+                                    ),                                    
                                     m(".evo-col-img", 
-                                        m("img.evo-img3"
-                                            , {src: "https://www.serebii.net/swordshield/pokemon/" 
+                                        m("img.evo-img3", 
+                                            {
+                                                src: "https://www.serebii.net/swordshield/pokemon/" 
                                                 + Pokemon.addZeroes(Pokemon.evoChain[1]) + ".png" 
                                             }
                                         ),
                                     )
                                 ] : 
                                 [
-
                                     m(".evo-col-img", 
-                                        m("img.evo-img1"
-                                            , {src: "https://www.serebii.net/swordshield/pokemon/" 
+                                        m("img.evo-img1", 
+                                            {
+                                                src: "https://www.serebii.net/swordshield/pokemon/" 
                                                 + Pokemon.addZeroes(Pokemon.evoChain[0]) + ".png" 
                                             }
                                         )
                                     ),
-
-                                    
                                     m(".evo-col-arrow", 
                                         m(".evo-row", 
                                             
-                                            m("img.evo-arrow-right"
-                                                , {src: "https://i.imgur.com/jwr0a97.png" 
-                                                }
-                                            ),
+                                            m("img.evo-arrow-right", {src: "https://i.imgur.com/jwr0a97.png"})
                                         ),
                                         m(".evo-row", 
-                                            m(".evo-level", "Lv. x")
+                                            m(".evo-level", Pokemon.evoLevels[0])
                                         )
                                     ),
-
-
-
                                     m("", 
-                                        m("img.evo-img2"
-                                            , {src: "https://www.serebii.net/swordshield/pokemon/" 
+                                        m("img.evo-img2", 
+                                            {
+                                                src: "https://www.serebii.net/swordshield/pokemon/" 
                                                 + Pokemon.addZeroes(Pokemon.evoChain[1]) + ".png" 
                                             }
                                         )
                                     ),
-
-
-
-
                                     m(".evo-col-arrow", 
                                         m(".evo-row", 
                                             
-                                            m("img.evo-arrow-right"
-                                                , {src: "https://i.imgur.com/jwr0a97.png" 
-                                                }
-                                            ),
+                                            m("img.evo-arrow-right", {src: "https://i.imgur.com/jwr0a97.png"})
                                         ),
                                         m(".evo-row", 
-                                            m(".evo-level", "Lv. x")
+                                            m(".evo-level", Pokemon.evoLevels[1])
                                         )
                                     ),
-
-
-
                                     m(".evo-col-img", 
-                                        m("img.evo-img3"
-                                            , {src: "https://www.serebii.net/swordshield/pokemon/" 
+                                        m("img.evo-img3", 
+                                            {
+                                                src: "https://www.serebii.net/swordshield/pokemon/" 
                                                 + Pokemon.addZeroes(Pokemon.evoChain[2]) + ".png" 
                                             }
                                         )
                                     )
-
-
-
                                 ]   
                             ])
 

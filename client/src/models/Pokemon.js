@@ -6,9 +6,7 @@ var Pokemon = {
     name: "",
     class: "",
     height: "",
-    //decimeters
     weight: "",
-    //hectograms
     type1: "",
     type2: "",
     flavorText: "",
@@ -26,6 +24,7 @@ var Pokemon = {
     colTwo: [],
     colThree: [],
     evoChain: [],
+    evoLevels: [],
 
     loadList: function() {
 
@@ -102,7 +101,6 @@ var Pokemon = {
     },
 
     setPokemon: function (id) {
-        // console.log(id)
 
         return m.request({
             method: "GET",
@@ -110,8 +108,7 @@ var Pokemon = {
         })
         .then(function(result) { 
             Pokemon.setId(result.id)
-            Pokemon.setName(Pokemon.nameCaps(result.name))
-            // Pokemon.setClass()            
+            Pokemon.setName(Pokemon.nameCaps(result.name))           
             Pokemon.setHeight(result.height)
             Pokemon.setWeight(result.weight)
             Pokemon.setType1(Pokemon.nameCaps(result.types[0].type.name))
@@ -119,15 +116,6 @@ var Pokemon = {
             if (result.types[1]){
                 Pokemon.setType2(Pokemon.nameCaps(result.types[1].type.name))
             } else (Pokemon.setType2("None"))
-
-            // console.log(Pokemon.getId() + " " + 
-            // Pokemon.getName() + " " + 
-            // Pokemon.getHeight() + " " + 
-            // Pokemon.getWeight() + " " + 
-            // Pokemon.getType1() + " " + 
-            // Pokemon.getType2() + " " )
-
-            // console.log(result.types)
         })
         .then(m.request({
             method: "GET",
@@ -162,25 +150,72 @@ var Pokemon = {
                 url: evoURL
             })
             .then(function(result) {
-                // console.log(result)
 
                 Pokemon.evoChain = []
-                // console.log(result.chain.species.url.split("/")[6])
+                Pokemon.evoLevels = []
                 Pokemon.evoChain.push(result.chain.species.url.split("/")[6])
+
                 if (result.chain.evolves_to[0]) {
-                    // result.chain.evolves_to[0].species.url.split("/")[6]
-                    // console.log(result.chain.evolves_to[0].species.url.split("/")[6])
+        
+                    // console.log(result.chain)
                     Pokemon.evoChain.push(result.chain.evolves_to[0].species.url.split("/")[6])
 
+                    if(result.chain.evolves_to[0].evolution_details[0].trigger.name == "level-up") {
+
+                        if(result.chain.evolves_to[0].evolution_details[0].min_level){
+                            Pokemon.evoLevels.push(result.chain.evolves_to[0].evolution_details[0].min_level)
+                        } else if (result.chain.evolves_to[0].evolution_details[0].min_happiness) {
+                            Pokemon.evoLevels.push(
+                                "Happiness: " + result.chain.evolves_to[0].evolution_details[0].min_happiness
+                            )
+                        }                        
+                    } else if (result.chain.evolves_to[0].evolution_details[0].trigger.name == "use-item") {
+                        Pokemon.evoLevels.push(
+                            Pokemon.nameCaps(result.chain.evolves_to[0].evolution_details[0].item.name)
+                        )
+                    } else if (result.chain.evolves_to[0].evolution_details[0].trigger.name == "trade") {
+
+                        if (result.chain.evolves_to[0].evolution_details[0].held_item) {
+                            Pokemon.evoLevels.push(
+                                "Trade while holding " + 
+                                Pokemon.nameCaps(result.chain.evolves_to[0].evolution_details[0].held_item.name)
+                            )
+                        } else {
+                            Pokemon.evoLevels.push("Trade")
+                        }
+                    }
+
                     if (result.chain.evolves_to[0].evolves_to[0]){
-                        // console.log(result.chain.evolves_to[0].evolves_to[0].species.url.split("/")[6])
+
                         Pokemon.evoChain.push(result.chain.evolves_to[0].evolves_to[0].species.url.split("/")[6])
+
+                        if(result.chain.evolves_to[0].evolves_to[0].evolution_details[0].trigger.name == "level-up") {
+
+                            if(result.chain.evolves_to[0].evolves_to[0].evolution_details[0].min_level){
+                                Pokemon.evoLevels.push(result.chain.evolves_to[0].evolves_to[0].evolution_details[0].min_level)
+                            } else if (result.chain.evolves_to[0].evolves_to[0].evolution_details[0].min_happiness) {
+                                Pokemon.evoLevels.push(
+                                    "Happiness: " + result.chain.evolves_to[0].evolves_to[0].evolution_details[0].min_happiness
+                                )
+                            }                            
+                        } else if (result.chain.evolves_to[0].evolves_to[0].evolution_details[0].trigger.name == "use-item") {
+                            Pokemon.evoLevels.push(
+                                Pokemon.nameCaps(result.chain.evolves_to[0].evolves_to[0].evolution_details[0].item.name)
+                            )
+                        } else if (result.chain.evolves_to[0].evolves_to[0].evolution_details[0].trigger.name == "trade") {
+
+                            if (result.chain.evolves_to[0].evolves_to[0].evolution_details[0].held_item) {
+                                Pokemon.evoLevels.push(
+                                    "Trade while holding " + 
+                                    Pokemon.nameCaps(result.chain.evolves_to[0].evolves_to[0].evolution_details[0].held_item.name)
+                                )
+                            } else {
+                                Pokemon.evoLevels.push("Trade")
+                            }
+                        }
                     }
                 }
-
-                // console.log(Pokemon.evoChain)
             })
-
         })
         )
     },
