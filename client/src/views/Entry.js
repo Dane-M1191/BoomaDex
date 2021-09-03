@@ -7,15 +7,16 @@ module.exports = {
     
     view: function() {
 
+        //populates pokemon fields
         if(Pokemon.id != window.location.href.split("/")[5]) {
             Pokemon.setPokemon(window.location.href.split("/")[5])
         }
 
+        //check if pokemon has evolutions
         var img = true
         var img2 = true
         if (Pokemon.evoChain[1]) {
-            img = false
-            
+            img = false            
             if (Pokemon.evoChain[2]) {
                 img2 = false
             }
@@ -23,24 +24,44 @@ module.exports = {
 
         return m(".entry-row",
             m(".entry-col", 
-                m(".entry-row", 
-                    m(".entry-col", 
-                        m(".previous",                            
-                            m("img.link-img",
-                                {src: "https://www.serebii.net/swordshield/pokemon/" 
-                                    + Pokemon.addZeroes(window.location.href.split("/")[5] - 1) + ".png" 
-                                }
-                            ),
-                                m(m.route.Link, {href: "/entry/" + (window.location.href.split("/")[5] - 1)}, " Previous")
+                m(".entry-nav-row", 
+                    m(".entry-nav-col", 
+                        m(".previous",  
+                            m(".entry-nav-row2",                        
+                                m(".entry-nav-col2",
+                                    m("img.link-img",
+                                        {src: "https://www.serebii.net/swordshield/pokemon/" 
+                                            + Pokemon.addZeroes(Pokemon.getId()-1) + ".png" 
+                                        }
+                                    )
+                                ),
+                                m(".entry-nav-col2",
+                                    m("p",
+                                        m(m.route.Link, {href: "/entry/" + (Pokemon.getId()-1)}, 
+                                            "Previous #" + (Pokemon.getId()-1)
+                                        )
+                                    )
+                                )
+                            )
                         )
                     ), 
-                    m(".entry-col", 
+                    m(".entry-nav-col", 
                         m(".next",
-                            m(m.route.Link, {href: "/entry/" + (parseInt(window.location.href.split("/")[5]) + 1)}, "Next "),
-                            m("img.link-img",
-                                {src: "https://www.serebii.net/swordshield/pokemon/" 
-                                    + Pokemon.addZeroes(parseInt(window.location.href.split("/")[5]) + 1) + ".png" 
-                                }
+                            m(".entry-nav-row2",
+                                m(".entry-nav-col2",
+                                    m("p",
+                                        m(m.route.Link, {href: "/entry/" + (Pokemon.getId()+1)}, 
+                                            "Next #" + (Pokemon.getId()+1)
+                                        )
+                                    )
+                                ),
+                                m(".entry-nav-col2",
+                                    m("img.link-img",
+                                        {src: "https://www.serebii.net/swordshield/pokemon/" 
+                                            + Pokemon.addZeroes(Pokemon.getId()+1) + ".png" 
+                                        }
+                                    )
+                                )
                             )
                         )
                     )
@@ -48,7 +69,7 @@ module.exports = {
                 m(".entry-row",
                     m(".entry-col2",
                         m(".entry-row3", 
-                            m(".entry-col", m(".entry-name", Pokemon.name + " #" + window.location.href.split("/")[5]))
+                            m(".entry-col", m(".entry-name", Pokemon.name + " #" + Pokemon.getId()))
                         ),
                         m(".entry-row",
                             m(".entry-col", 
@@ -84,68 +105,29 @@ module.exports = {
                             m(".entry-col-img2", 
                                 m("img.entry-img"
                                     , {src: "https://www.serebii.net/swordshield/pokemon/" 
-                                        + Pokemon.addZeroes(window.location.href.split("/")[5]) + ".png" 
+                                        + Pokemon.addZeroes(Pokemon.getId()) + ".png" 
                                     }
                                 )
                             ),
-                        ),
-                        m(".entry-row",
                             m(".entry-col-img2", 
                                 m("img.entry-img2"
                                     , {src: "https://www.serebii.net/Shiny/SWSH/" 
-                                        + Pokemon.addZeroes(window.location.href.split("/")[5]) + ".png" 
+                                        + Pokemon.addZeroes(Pokemon.getId()) + ".png" 
                                     }
                                 )
                             )
                         )
 
-
+                        
                     )                    
                 ),
                 m(".evo-row",
                     m(".evo-data",
                         m(".entry-col-img", 
 
-
-
-
-
-
-
-                            // m(".entry-row", 
-                            //     m(".evo-col-img", 
-                            //         m("img.evo-img"
-                            //             , {src: "https://www.serebii.net/swordshield/pokemon/" 
-                            //                 + Pokemon.addZeroes(Pokemon.evoChain[0]) + ".png" 
-                            //             }
-                            //         )
-                            //     ),
-                            //     m(".evo-col-img", 
-                            //         m("img.evo-img"
-                            //             , {src: "https://www.serebii.net/swordshield/pokemon/" 
-                            //                 + Pokemon.addZeroes(Pokemon.evoChain[1]) + ".png" 
-                            //             }
-                            //         )
-                            //     ),
-                            //     m(".evo-col-img", 
-                            //         m("img.evo-img"
-                            //             , {src: "https://www.serebii.net/swordshield/pokemon/" 
-                            //                 + Pokemon.addZeroes(Pokemon.evoChain[2]) + ".png" 
-                            //             }
-                            //         )
-                            //     )
-                            // )
-
-
-
-
-
-
-
-
                             m(".entry-row", img ? [
                                 m(".evo-col-img", 
-                                    m("img.evo-img"
+                                    m("img.evo-img2"
                                         , {src: "https://www.serebii.net/swordshield/pokemon/" 
                                             + Pokemon.addZeroes(Pokemon.evoChain[0]) + ".png" 
                                         }
@@ -156,14 +138,22 @@ module.exports = {
 
 
                                     m(".evo-col-img", 
-                                        m("img.evo-img"
+                                        m("img.evo-img1"
                                             , {src: "https://www.serebii.net/swordshield/pokemon/" 
                                                 + Pokemon.addZeroes(Pokemon.evoChain[0]) + ".png" 
                                             }
                                         )
                                     ),
+                                    //---------------testing arrows----------------------------------
+                                    m(".evo-col-arrow", 
+                                        m("img.evo-arrow-right"
+                                            , {src: "https://i.imgur.com/jwr0a97.png" 
+                                            }
+                                        )
+                                    ),
+                                    //----------------------------------------------------------------
                                     m(".evo-col-img", 
-                                        m("img.evo-img"
+                                        m("img.evo-img3"
                                             , {src: "https://www.serebii.net/swordshield/pokemon/" 
                                                 + Pokemon.addZeroes(Pokemon.evoChain[1]) + ".png" 
                                             }
@@ -173,21 +163,21 @@ module.exports = {
                                 [
 
                                     m(".evo-col-img", 
-                                        m("img.evo-img"
+                                        m("img.evo-img1"
                                             , {src: "https://www.serebii.net/swordshield/pokemon/" 
                                                 + Pokemon.addZeroes(Pokemon.evoChain[0]) + ".png" 
                                             }
                                         )
                                     ),
-                                    m(".evo-col-img", 
-                                        m("img.evo-img"
+                                    m(".evo-col-img2", 
+                                        m("img.evo-img2"
                                             , {src: "https://www.serebii.net/swordshield/pokemon/" 
                                                 + Pokemon.addZeroes(Pokemon.evoChain[1]) + ".png" 
                                             }
                                         )
                                     ),
                                     m(".evo-col-img", 
-                                        m("img.evo-img"
+                                        m("img.evo-img3"
                                             , {src: "https://www.serebii.net/swordshield/pokemon/" 
                                                 + Pokemon.addZeroes(Pokemon.evoChain[2]) + ".png" 
                                             }
@@ -197,35 +187,7 @@ module.exports = {
 
 
                                 ]   
-                            ] 
-
-
-
-
-
-
-
-                                // m(".evo-col-img", 
-                                //     m("img.evo-img"
-                                //         , {src: "https://www.serebii.net/swordshield/pokemon/" 
-                                //             + Pokemon.addZeroes(Pokemon.evoChain[1]) + ".png" 
-                                //         }
-                                //     )
-                                // ),
-                                // m(".evo-col-img", 
-                                //     m("img.evo-img"
-                                //         , {src: "https://www.serebii.net/swordshield/pokemon/" 
-                                //             + Pokemon.addZeroes(Pokemon.evoChain[2]) + ".png" 
-                                //         }
-                                //     )
-                                // )
-                            )
-
-
-
-
-
-
+                            ])
 
                         )  
                     )  
