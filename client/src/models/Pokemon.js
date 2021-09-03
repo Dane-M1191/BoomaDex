@@ -134,17 +134,18 @@ var Pokemon = {
             url: "https://pokeapi.co/api/v2/pokemon-species/" + id
         })
         .then(function(result) {
-            // console.log(result)
             let evoURL = result.evolution_chain.url
             Pokemon.setClass(result.genera[7].genus)
 
-            // console.log(evoURL)
+            let n = 0
+            for (str of result.flavor_text_entries) {
+                if (str.language.name == "en") {n++}
+            }
 
             let i = 0
             let j = 0
             for (str of result.flavor_text_entries) {
-                if (str.language.name == "en" && j < 1 && i > 30) {
-                    // console.log( i + " ----- " + str.flavor_text)
+                if (str.language.name == "en" && j < 1 && i <= n) {
                     Pokemon.setFlavorText(str.flavor_text)
                     j++
                 }
@@ -152,7 +153,6 @@ var Pokemon = {
             }
 
             return evoURL
-            // console.log(Pokemon.getClass())
         })
         .then(function(evoURL) {
 

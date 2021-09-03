@@ -78,6 +78,8 @@ module.exports = {
                         )
                     ), 
                     m(".entry-col-img", 
+
+
                         m(".entry-row", 
                             m(".entry-col-img2", 
                                 m("img.entry-img"
@@ -86,6 +88,8 @@ module.exports = {
                                     }
                                 )
                             ),
+                        ),
+                        m(".entry-row",
                             m(".entry-col-img2", 
                                 m("img.entry-img2"
                                     , {src: "https://www.serebii.net/Shiny/SWSH/" 
@@ -94,6 +98,8 @@ module.exports = {
                                 )
                             )
                         )
+
+
                     )                    
                 ),
                 m(".evo-row",
