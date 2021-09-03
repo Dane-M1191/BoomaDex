@@ -36,7 +36,7 @@ module.exports = {
                                     )
                                 ),
                                 m(".entry-nav-col2",
-                                    m("p",
+                                    m(".previous-next-link",
                                         m(m.route.Link, {href: "/entry/" + (Pokemon.getId()-1)}, 
                                             "Previous #" + (Pokemon.getId()-1)
                                         )
@@ -49,7 +49,7 @@ module.exports = {
                         m(".next",
                             m(".entry-nav-row2",
                                 m(".entry-nav-col2",
-                                    m("p",
+                                    m(".previous-next-link",
                                         m(m.route.Link, {href: "/entry/" + (Pokemon.getId()+1)}, 
                                             "Next #" + (Pokemon.getId()+1)
                                         )
@@ -146,9 +146,15 @@ module.exports = {
                                     ),
                                     //---------------testing arrows----------------------------------
                                     m(".evo-col-arrow", 
-                                        m("img.evo-arrow-right"
-                                            , {src: "https://i.imgur.com/jwr0a97.png" 
-                                            }
+                                        m(".evo-row", 
+                                            
+                                            m("img.evo-arrow-right"
+                                                , {src: "https://i.imgur.com/jwr0a97.png" 
+                                                }
+                                            ),
+                                        ),
+                                        m(".evo-row", 
+                                            m(".evo-level", "Lv. x")
                                         )
                                     ),
                                     //----------------------------------------------------------------
@@ -157,7 +163,7 @@ module.exports = {
                                             , {src: "https://www.serebii.net/swordshield/pokemon/" 
                                                 + Pokemon.addZeroes(Pokemon.evoChain[1]) + ".png" 
                                             }
-                                        )
+                                        ),
                                     )
                                 ] : 
                                 [
@@ -169,13 +175,49 @@ module.exports = {
                                             }
                                         )
                                     ),
-                                    m(".evo-col-img2", 
+
+                                    
+                                    m(".evo-col-arrow", 
+                                        m(".evo-row", 
+                                            
+                                            m("img.evo-arrow-right"
+                                                , {src: "https://i.imgur.com/jwr0a97.png" 
+                                                }
+                                            ),
+                                        ),
+                                        m(".evo-row", 
+                                            m(".evo-level", "Lv. x")
+                                        )
+                                    ),
+
+
+
+                                    m("", 
                                         m("img.evo-img2"
                                             , {src: "https://www.serebii.net/swordshield/pokemon/" 
                                                 + Pokemon.addZeroes(Pokemon.evoChain[1]) + ".png" 
                                             }
                                         )
                                     ),
+
+
+
+
+                                    m(".evo-col-arrow", 
+                                        m(".evo-row", 
+                                            
+                                            m("img.evo-arrow-right"
+                                                , {src: "https://i.imgur.com/jwr0a97.png" 
+                                                }
+                                            ),
+                                        ),
+                                        m(".evo-row", 
+                                            m(".evo-level", "Lv. x")
+                                        )
+                                    ),
+
+
+
                                     m(".evo-col-img", 
                                         m("img.evo-img3"
                                             , {src: "https://www.serebii.net/swordshield/pokemon/" 
