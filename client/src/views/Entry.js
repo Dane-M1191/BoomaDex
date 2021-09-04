@@ -122,24 +122,26 @@ module.exports = {
                         m(".entry-col-img", 
                             m(".entry-row", img ? [
                                 m(".evo-col-img", 
-                                    // m(m.route.Link, {href: "/entry/" + Pokemon.getId()},
+                                    m(m.route.Link, {href: "/entry/" + Pokemon.evoChain[0]},
                                         m("img.evo-img2", 
                                             {
                                                 src: "https://www.serebii.net/swordshield/pokemon/" 
                                                 + Pokemon.addZeroes(Pokemon.evoChain[0]) + ".png"
                                             }
                                         )
-                                    // )
+                                    )
                                 )
                             ] : 
                             [ img2 ? 
                                 [
                                     m(".evo-col-img", 
-                                        m("img.evo-img1", 
-                                            {
-                                                src: "https://www.serebii.net/swordshield/pokemon/" 
-                                                + Pokemon.addZeroes(Pokemon.evoChain[0]) + ".png" 
-                                            }
+                                        m(m.route.Link, {href: "/entry/" + Pokemon.evoChain[0]},
+                                            m("img.evo-img1", 
+                                                {
+                                                    src: "https://www.serebii.net/swordshield/pokemon/" 
+                                                    + Pokemon.addZeroes(Pokemon.evoChain[0]) + ".png" 
+                                                }
+                                            )
                                         )
                                     ),                                    
                                     m(".evo-col-arrow", 
@@ -151,21 +153,25 @@ module.exports = {
                                         )
                                     ),                                    
                                     m(".evo-col-img", 
-                                        m("img.evo-img3", 
-                                            {
-                                                src: "https://www.serebii.net/swordshield/pokemon/" 
-                                                + Pokemon.addZeroes(Pokemon.evoChain[1]) + ".png" 
-                                            }
-                                        ),
+                                        m(m.route.Link, {href: "/entry/" + Pokemon.evoChain[1]},
+                                            m("img.evo-img3", 
+                                                {
+                                                    src: "https://www.serebii.net/swordshield/pokemon/" 
+                                                    + Pokemon.addZeroes(Pokemon.evoChain[1]) + ".png" 
+                                                }
+                                            )
+                                        )
                                     )
                                 ] : 
                                 [
                                     m(".evo-col-img", 
-                                        m("img.evo-img1", 
-                                            {
-                                                src: "https://www.serebii.net/swordshield/pokemon/" 
-                                                + Pokemon.addZeroes(Pokemon.evoChain[0]) + ".png" 
-                                            }
+                                        m(m.route.Link, {href: "/entry/" + Pokemon.evoChain[0]},
+                                            m("img.evo-img1", 
+                                                {
+                                                    src: "https://www.serebii.net/swordshield/pokemon/" 
+                                                    + Pokemon.addZeroes(Pokemon.evoChain[0]) + ".png" 
+                                                }
+                                            )
                                         )
                                     ),
                                     m(".evo-col-arrow", 
@@ -178,11 +184,13 @@ module.exports = {
                                         )
                                     ),
                                     m("", 
-                                        m("img.evo-img2", 
-                                            {
-                                                src: "https://www.serebii.net/swordshield/pokemon/" 
-                                                + Pokemon.addZeroes(Pokemon.evoChain[1]) + ".png" 
-                                            }
+                                        m(m.route.Link, {href: "/entry/" + Pokemon.evoChain[1]},
+                                            m("img.evo-img2", 
+                                                {
+                                                    src: "https://www.serebii.net/swordshield/pokemon/" 
+                                                    + Pokemon.addZeroes(Pokemon.evoChain[1]) + ".png" 
+                                                }
+                                            )
                                         )
                                     ),
                                     m(".evo-col-arrow", 
@@ -195,11 +203,13 @@ module.exports = {
                                         )
                                     ),
                                     m(".evo-col-img", 
-                                        m("img.evo-img3", 
-                                            {
-                                                src: "https://www.serebii.net/swordshield/pokemon/" 
-                                                + Pokemon.addZeroes(Pokemon.evoChain[2]) + ".png" 
-                                            }
+                                        m(m.route.Link, {href: "/entry/" + Pokemon.evoChain[2]},
+                                            m("img.evo-img3", 
+                                                {
+                                                    src: "https://www.serebii.net/swordshield/pokemon/" 
+                                                    + Pokemon.addZeroes(Pokemon.evoChain[2]) + ".png" 
+                                                }
+                                            )
                                         )
                                     )
                                 ]   

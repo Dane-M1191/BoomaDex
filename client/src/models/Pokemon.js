@@ -144,7 +144,6 @@ var Pokemon = {
         })
         .then(function(evoURL) {
 
-            console.log(evoURL)
             return m.request({
                 method: "GET",
                 url: evoURL
@@ -157,7 +156,6 @@ var Pokemon = {
 
                 if (result.chain.evolves_to[0]) {
         
-                    // console.log(result.chain)
                     Pokemon.evoChain.push(result.chain.evolves_to[0].species.url.split("/")[6])
 
                     if(result.chain.evolves_to[0].evolution_details[0].trigger.name == "level-up") {
