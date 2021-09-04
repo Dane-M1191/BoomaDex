@@ -165,29 +165,32 @@ module.exports = {
                         ),
                         m(".entry-row", 
                             m(".entry-col", 
-                                m(".entry-data", "Can Mega-Evovle: " + Pokemon.getCanMega())
+                                m(".entry-data", "Can Mega-Evolve: " + Pokemon.getCanMega())
                             )                            
                         ),
                         m(".entry-row", 
                             m(".entry-col", 
                                 m(".entry-data", "Can Gigantimax: " + Pokemon.getCanGmax())
                             )                            
-                        ),
-                        m(".entry-row", 
-                            m(".entry-col", 
-                                m(".entry-data", Pokemon.getFlavorText())
-                            )                            
                         )
                     ),
                     
-                    //Evolution Chain--------------------------------------------------------------------------------
-                    m(".entry-col-img", 
+                    //Pokemon Image--------------------------------------------------------------------------------
+                    m(".entry-col-img3", 
+                        // m(".entry-row", 
+                        //     m(".entry-col", 
+                        //         m(".label2", "Normal")
+                        //     ),
+                        //     m(".entry-col", 
+                        //         m(".label2", "Shiny")
+                        //     )
+                        // ),
                         m(".entry-row", 
                             m(".entry-col-img2", 
                                 m("img.entry-img"
                                     , {src: "https://www.serebii.net/swordshield/pokemon/" 
                                         + Pokemon.addZeroes(Pokemon.getId()) + ".png" 
-                                    }
+                                    } 
                                 )
                             ),
                             m(".entry-col-img2", 
@@ -196,14 +199,35 @@ module.exports = {
                                         + Pokemon.addZeroes(Pokemon.getId()) + ".png" 
                                     }
                                 )
+                            )                        
+                        ),
+                        m(".entry-row", 
+                            m(".entry-col", 
+                                m(".label2", "Normal")
+                            ),
+                            m(".entry-col", 
+                                m(".label2", "Shiny")
                             )
                         )
-                    )                    
+                    )
                 ),
+                //Flavor Text-------------------------------------------------------------------------------------
+                m(".entry-row",
+                    m(".entry-col2",
+                        m(".label", "Flavor Text"),
+                        m(".entry-row", 
+                            m(".entry-col", 
+                                m(".entry-data", Pokemon.getFlavorText() + Pokemon.getFlavorText() + Pokemon.getFlavorText())
+                            )                            
+                        )
+                    )
+                ),
+                //Evolution Chain--------------------------------------------------------------------------------
                 m(".evo-row",
                     m(".evo-data",
                         m(".entry-col-img", 
-                            m(".entry-row", img ? [
+                            m(".label", "Evolution"),
+                            m(".evo-row", img ? [
                                 m(".evo-col-img", 
                                     m(m.route.Link, {href: "/entry/" + Pokemon.evoChain[0]},
                                         m("img.evo-img2", 

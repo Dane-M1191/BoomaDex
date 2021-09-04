@@ -78,6 +78,14 @@ nav {
     font-size: 5vw; 
 }
 
+.label {
+    font-size: 1.1vw;
+}
+
+.label2 {
+    font-size: .7vw;
+}
+
 .nav-link, .nav-link:visited {
     color: #ffffff;
     text-decoration: none;
@@ -119,6 +127,8 @@ nav {
 .entry-row {
     display: flex;
     text-align: center;
+    margin: .1vw;
+    /* border: solid .1vw #000000; */
 }
 
 .entry-row2 {
@@ -129,19 +139,22 @@ nav {
 .entry-row3 {
     display: flex;
     text-align: center;
-    margin-bottom: 2px;
+    margin-bottom: .2vw;
 }
 
 .entry-col {
     flex: 100%;
-    padding: 2px;
-    margin: 1px;
+    padding: .8%;
+    margin: .1vw;
 }
 
 .entry-col2 {
     flex: 50%;
-    padding: 5px;
-    margin: 5px;
+    padding: .8%;
+    margin: .35vw;
+    border: solid .1vw #000000;
+    border-radius: 2vw;
+    /* height:auto; */
 }
 
 .entry-col-img {
@@ -149,21 +162,24 @@ nav {
 }
 
 .entry-col-img2 {
-    flex: 50%;
+    display: flex;
     padding: 2px;
     margin: 1px;
 }
 
+.entry-col-img3 {
+    /* display: flex; */
+    border: solid .1vw #000000;
+    border-radius: 2vw;
+    margin: .35vw;
+}
+
 .entry-name {
-    padding: 2px;
-    margin: 1px;
     font-size: 2vw;
     text-align: left;
 }
 
 .entry-data {
-    padding: 2px;
-    margin: 1px;
     font-size: .99vw;
     text-align: left;
 }
@@ -171,12 +187,18 @@ nav {
 .entry-img {
     border-radius: 3.5vw;
     height:16vw;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .entry-img2 {
     border-radius: 3.5vw;
     height:16vw;
+    margin-top: auto;
+    margin-bottom: auto;
 }
+
+/* ----Entry Nav-------------------------------------------------------------------------------------------- */
 
 .entry-nav-row {
     display: flex;
@@ -224,9 +246,10 @@ nav {
 
 /* ----Evo Classes------------------------------------------------------------------------------------------ */
 
-/* .evo-row {
+.evo-row {
     display: flex;
-}  */
+    text-align: center;
+}
 
 .evo-col-img {
     flex: 0%;
@@ -243,8 +266,8 @@ nav {
     flex: 100%;
     border-radius: 1.7vw;
     height: fit-content;
-    padding: 2px;
-    margin: .9vw;
+    padding-top: .8%;
+    margin: .35vw;
     color: #000000;
     border: solid .1vw #000000;
 }
