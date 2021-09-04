@@ -152,6 +152,29 @@ module.exports = {
                         ),
                         m(".entry-row", 
                             m(".entry-col", 
+                                m(".entry-data", "Male Chance: " + Pokemon.getMaleChance() + "%")
+                            ), 
+                            m(".entry-col", 
+                                m(".entry-data", "Female Chance: " + Pokemon.getFemaleChance() + "%")
+                            )
+                        ),
+                        m(".entry-row", 
+                            m(".entry-col", 
+                                m(".entry-data", "Egg Steps: " + Pokemon.getEggSteps())
+                            )                            
+                        ),
+                        m(".entry-row", 
+                            m(".entry-col", 
+                                m(".entry-data", "Can Mega-Evovle: " + Pokemon.getCanMega())
+                            )                            
+                        ),
+                        m(".entry-row", 
+                            m(".entry-col", 
+                                m(".entry-data", "Can Gigantimax: " + Pokemon.getCanGmax())
+                            )                            
+                        ),
+                        m(".entry-row", 
+                            m(".entry-col", 
                                 m(".entry-data", Pokemon.getFlavorText())
                             )                            
                         )

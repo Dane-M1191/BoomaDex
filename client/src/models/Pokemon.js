@@ -12,8 +12,8 @@ var Pokemon = {
     maleChance: "",
     femaleChance: "",
     eggSteps: "",
-    canMega: false,
-    canGmax: true,
+    canMega: "No",
+    canGmax: "No",
     flavorText: "",
 
     list: [],
@@ -117,7 +117,6 @@ var Pokemon = {
             Pokemon.setHeight(result.height)
             Pokemon.setWeight(result.weight)
             Pokemon.setType1(Pokemon.nameCaps(result.types[0].type.name))
-
             if (result.types[1]){
                 Pokemon.setType2(Pokemon.nameCaps(result.types[1].type.name))
             } else (Pokemon.setType2("None"))
@@ -144,7 +143,25 @@ var Pokemon = {
                 }
                 i++
             }
+            
+            Pokemon.setFemaleChance(result.gender_rate)
+            Pokemon.setMaleChance(100 - Pokemon.getFemaleChance())
+            Pokemon.setEggSteps(result.hatch_counter)
 
+            //Check if can mega or gmax
+            Pokemon.setCanGmax("No")
+            Pokemon.setCanMega("No")
+            for (form of result.varieties) {
+                if (form.pokemon.name == result.varieties[0].pokemon.name + "-gmax") {
+                    Pokemon.setCanGmax("Yes")
+                }
+                if (form.pokemon.name == result.varieties[0].pokemon.name + "-mega"
+                    || form.pokemon.name == result.varieties[0].pokemon.name + "-mega-x"
+                    || form.pokemon.name == result.varieties[0].pokemon.name + "-mega-y") 
+                {
+                    Pokemon.setCanMega("Yes")
+                }
+            }
             return evoURL
         })
         .then(function(evoURL) {
@@ -264,7 +281,7 @@ var Pokemon = {
     setMaleChance: function(maleChance) {this.maleChance = maleChance},
 
     getFemaleChance: function() { return this.femaleChance},
-    setFemaleChance: function(femaleChance) {this.femaleChance = femaleChance},
+    setFemaleChance: function(femaleChance) {this.femaleChance = (femaleChance / 8) * 100},
 
     getEggSteps: function() { return this.eggSteps},
     setEggSteps: function(eggSteps) {this.eggSteps = eggSteps * 256},
