@@ -9,6 +9,11 @@ var Pokemon = {
     weight: "",
     type1: "",
     type2: "",
+    maleChance: "",
+    femaleChance: "",
+    eggSteps: "",
+    canMega: false,
+    canGmax: true,
     flavorText: "",
 
     list: [],
@@ -254,6 +259,21 @@ var Pokemon = {
 
     getType2: function() { return this.type2},
     setType2: function(type2) {this.type2 = type2}, 
+
+    getMaleChance: function() { return this.maleChance},
+    setMaleChance: function(maleChance) {this.maleChance = maleChance},
+
+    getFemaleChance: function() { return this.femaleChance},
+    setFemaleChance: function(femaleChance) {this.femaleChance = femaleChance},
+
+    getEggSteps: function() { return this.eggSteps},
+    setEggSteps: function(eggSteps) {this.eggSteps = eggSteps * 256},
+
+    getCanMega: function() { return this.canMega},
+    setCanMega: function(canMega) {this.canMega = canMega},
+
+    getCanGmax: function() { return this.canGmax},
+    setCanGmax: function(canGmax) {this.canGmax = canGmax},
     
     getFlavorText: function() { return this.flavorText},
     setFlavorText: function(str) {this.flavorText = str}

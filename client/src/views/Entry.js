@@ -12,6 +12,12 @@ module.exports = {
             Pokemon.setPokemon(window.location.href.split("/")[5])
         }
 
+        //check if current entry is first or last pokemon
+        var first = false
+        var last =  false
+        if (Pokemon.getId() == 1) { first = true}
+        if (Pokemon.getId() == 898) { last = true}
+
         //check if pokemon has evolutions
         var img = true
         var img2 = true
@@ -22,50 +28,102 @@ module.exports = {
             }
         }
 
+
         return m(".entry-row",
             m(".entry-col", 
+
+                //Preavious and Next Nav------------------------------------------------------------------
                 m(".entry-nav-row", 
-                    m(".entry-nav-col", 
-                        m(".previous",  
-                            m(".entry-nav-row2",                        
-                                m(".entry-nav-col2",
-                                    m("img.link-img",
-                                        {src: "https://www.serebii.net/swordshield/pokemon/" 
-                                            + Pokemon.addZeroes(Pokemon.getId()-1) + ".png" 
-                                        }
-                                    )
-                                ),
-                                m(".entry-nav-col2",
-                                    m(".previous-next-link",
-                                        m(m.route.Link, {href: "/entry/" + (Pokemon.getId()-1)}, 
-                                            "Previous #" + (Pokemon.getId()-1)
+                    first ? [
+                        m(".entry-nav-col", 
+                            m(".next",
+                                m(".entry-nav-row2",
+                                    m(".entry-nav-col2",
+                                        m(".previous-next-link",
+                                            m(m.route.Link, {href: "/entry/" + (Pokemon.getId()+1)}, 
+                                                "Next #" + (Pokemon.getId()+1)
+                                            )
+                                        )
+                                    ),
+                                    m(".entry-nav-col2",
+                                        m("img.link-img",
+                                            {src: "https://www.serebii.net/swordshield/pokemon/" 
+                                                + Pokemon.addZeroes(Pokemon.getId()+1) + ".png" 
+                                            }
                                         )
                                     )
                                 )
                             )
-                        )
-                    ), 
-                    m(".entry-nav-col", 
-                        m(".next",
-                            m(".entry-nav-row2",
-                                m(".entry-nav-col2",
-                                    m(".previous-next-link",
-                                        m(m.route.Link, {href: "/entry/" + (Pokemon.getId()+1)}, 
-                                            "Next #" + (Pokemon.getId()+1)
+                        )                        
+                        
+                    ] : [
+                        last ? [
+                            m(".entry-nav-col", 
+                                m(".previous",  
+                                    m(".entry-nav-row2",                        
+                                        m(".entry-nav-col2",
+                                            m("img.link-img",
+                                                {src: "https://www.serebii.net/swordshield/pokemon/" 
+                                                    + Pokemon.addZeroes(Pokemon.getId()-1) + ".png" 
+                                                }
+                                            )
+                                        ),
+                                        m(".entry-nav-col2",
+                                            m(".previous-next-link",
+                                                m(m.route.Link, {href: "/entry/" + (Pokemon.getId()-1)}, 
+                                                    "Previous #" + (Pokemon.getId()-1)
+                                                )
+                                            )
                                         )
                                     )
-                                ),
-                                m(".entry-nav-col2",
-                                    m("img.link-img",
-                                        {src: "https://www.serebii.net/swordshield/pokemon/" 
-                                            + Pokemon.addZeroes(Pokemon.getId()+1) + ".png" 
-                                        }
+                                )
+                            )                      
+
+                        ] : [
+                            m(".entry-nav-col", 
+                                m(".previous",  
+                                    m(".entry-nav-row2",                        
+                                        m(".entry-nav-col2",
+                                            m("img.link-img",
+                                                {src: "https://www.serebii.net/swordshield/pokemon/" 
+                                                    + Pokemon.addZeroes(Pokemon.getId()-1) + ".png" 
+                                                }
+                                            )
+                                        ),
+                                        m(".entry-nav-col2",
+                                            m(".previous-next-link",
+                                                m(m.route.Link, {href: "/entry/" + (Pokemon.getId()-1)}, 
+                                                    "Previous #" + (Pokemon.getId()-1)
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            ), 
+                            m(".entry-nav-col", 
+                                m(".next",
+                                    m(".entry-nav-row2",
+                                        m(".entry-nav-col2",
+                                            m(".previous-next-link",
+                                                m(m.route.Link, {href: "/entry/" + (Pokemon.getId()+1)}, 
+                                                    "Next #" + (Pokemon.getId()+1)
+                                                )
+                                            )
+                                        ),
+                                        m(".entry-nav-col2",
+                                            m("img.link-img",
+                                                {src: "https://www.serebii.net/swordshield/pokemon/" 
+                                                    + Pokemon.addZeroes(Pokemon.getId()+1) + ".png" 
+                                                }
+                                            )
+                                        )
                                     )
                                 )
                             )
-                        )
-                    )
+                        ]
+                    ]
                 ),
+                //Entry Data Row------------------------------------------------------------------------
                 m(".entry-row",
                     m(".entry-col2",
                         m(".entry-row3", 
@@ -97,7 +155,9 @@ module.exports = {
                                 m(".entry-data", Pokemon.getFlavorText())
                             )                            
                         )
-                    ), 
+                    ),
+                    
+                    //Evolution Chain--------------------------------------------------------------------------------
                     m(".entry-col-img", 
                         m(".entry-row", 
                             m(".entry-col-img2", 
