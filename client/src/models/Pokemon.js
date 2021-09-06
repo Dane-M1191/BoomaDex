@@ -146,6 +146,7 @@ var Pokemon = {
                 }
                 i++
             }
+            Pokemon.setFlavorText(Pokemon.cleanString(Pokemon.getFlavorText()))
             
             Pokemon.setFemaleChance(result.gender_rate)
             Pokemon.setMaleChance(100 - Pokemon.getFemaleChance())
@@ -264,6 +265,54 @@ var Pokemon = {
             })
         })
         )
+    },
+
+    cleanString: function(text) {
+        let str2 = ""
+        let str3 = ""
+        let str4 = ""
+        let str5 = ""
+        let str6 = ""
+        for (str of text.split("")) {
+            str2 += str + " "
+        }
+
+        for (str of str2.split("\n")) {
+            str3 += str + " "
+        }
+
+        for (str of str3.split("    ")) {
+            str4 += str + ""
+        }
+
+        console.log(str4)
+
+
+        for (str of str4.split(". ")) {
+            str5 += Pokemon.nameCaps(str.split(" ")[0])
+        
+            for (let i = 1; i < str.split(" ").length; i ++) {
+                
+                    console.log(str.split(" ")[i])
+                    str5 += " " + str.split(" ")[i].toLowerCase()
+                
+                 
+
+                    if (i >= str.split(" ").length-1) {str5 += ". "}
+            }
+            // str5 += "."
+        }
+
+        for (str of str5.split(".  . ")) {
+            str6 += str 
+
+        }
+
+
+    
+        console.log(str6)
+
+        return str6
     },
 
     nameCaps: function (name) {
