@@ -14,6 +14,7 @@ var Pokemon = {
     eggSteps: "",
     canMega: "No",
     canGmax: "No",
+    has2Megas: false,
     flavorText: "",
 
     list: [],
@@ -32,6 +33,7 @@ var Pokemon = {
     evoLevels: [],
 
     loadList: function() {
+        
 
         return m.request({
             method: "GET",
@@ -133,7 +135,8 @@ var Pokemon = {
             for (str of result.flavor_text_entries) {
                 if (str.language.name == "en") {n++}
             }
-
+            
+            Pokemon.setFlavorText("")
             let i = 0
             let j = 0
             for (str of result.flavor_text_entries) {
@@ -151,17 +154,40 @@ var Pokemon = {
             //Check if can mega or gmax
             Pokemon.setCanGmax("No")
             Pokemon.setCanMega("No")
+            Pokemon.setHas2Megas(false)
+            let megaNumber = 0
             for (form of result.varieties) {
+
+                
+
                 if (form.pokemon.name == result.varieties[0].pokemon.name + "-gmax") {
                     Pokemon.setCanGmax("Yes")
+                } else if (form.pokemon.name == result.varieties[0].pokemon.name + "-eternamax") {
+                    Pokemon.setCanGmax("Yes")
                 }
+
                 if (form.pokemon.name == result.varieties[0].pokemon.name + "-mega"
                     || form.pokemon.name == result.varieties[0].pokemon.name + "-mega-x"
                     || form.pokemon.name == result.varieties[0].pokemon.name + "-mega-y") 
                 {
                     Pokemon.setCanMega("Yes")
+                    megaNumber++
+                } else if (form.pokemon.name == result.varieties[0].pokemon.name + "-mega-x"
+                    || form.pokemon.name == result.varieties[0].pokemon.name + "-mega-y") 
+                {
+                    Pokemon.setCanMega("Yes")
+                    megaNumber += 2
+                } else if (form.pokemon.name == result.varieties[0].pokemon.name + "-primal") {
+                    Pokemon.setCanMega("Yes")
+                    megaNumber++
+                }
+
+                if (megaNumber > 1) {
+                    Pokemon.setHas2Megas(true)
                 }
             }
+            // console.log(megaNumber)
+            // console.log("2 megas: " + Pokemon.getHas2Megas())
             return evoURL
         })
         .then(function(evoURL) {
@@ -291,6 +317,9 @@ var Pokemon = {
 
     getCanGmax: function() { return this.canGmax},
     setCanGmax: function(canGmax) {this.canGmax = canGmax},
+
+    getHas2Megas: function() { return this.has2Megas},
+    setHas2Megas: function(bool) {this.has2Megas = bool},
     
     getFlavorText: function() { return this.flavorText},
     setFlavorText: function(str) {this.flavorText = str}

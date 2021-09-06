@@ -28,6 +28,11 @@ module.exports = {
             }
         }
 
+        //check if pokemon can mega-evolve or gigantimax
+        var giga = false
+        var mega = false
+        if (Pokemon.canGmax == "Yes") {giga = true}
+        if (Pokemon.canMega == "Yes") {mega = true}
 
         return m(".entry-row",
             m(".entry-col", 
@@ -165,26 +170,18 @@ module.exports = {
                         ),
                         m(".entry-row", 
                             m(".entry-col", 
-                                m(".entry-data", "Can Mega-Evolve: " + Pokemon.getCanMega())
+                                m(".entry-data", "Can Gigantimax: " + Pokemon.getCanGmax())
                             )                            
                         ),
                         m(".entry-row", 
                             m(".entry-col", 
-                                m(".entry-data", "Can Gigantimax: " + Pokemon.getCanGmax())
+                                m(".entry-data", "Can Mega-Evolve: " + Pokemon.getCanMega())
                             )                            
                         )
                     ),
                     
                     //Pokemon Image--------------------------------------------------------------------------------
                     m(".entry-col-img3", 
-                        // m(".entry-row", 
-                        //     m(".entry-col", 
-                        //         m(".label2", "Normal")
-                        //     ),
-                        //     m(".entry-col", 
-                        //         m(".label2", "Shiny")
-                        //     )
-                        // ),
                         m(".entry-row", 
                             m(".entry-col-img2", 
                                 m("img.entry-img"
@@ -194,7 +191,7 @@ module.exports = {
                                 )
                             ),
                             m(".entry-col-img2", 
-                                m("img.entry-img2"
+                                m("img.entry-img"
                                     , {src: "https://www.serebii.net/Shiny/SWSH/" 
                                         + Pokemon.addZeroes(Pokemon.getId()) + ".png" 
                                     }
@@ -324,7 +321,296 @@ module.exports = {
 
                         )  
                     )  
-                )
+                ), 
+                giga ? [
+                    m(".evo-row",
+                        m(".evo-data", 
+                            Pokemon.getId() != 890 ? [
+
+
+
+
+
+
+
+
+                                m(".label", "Gigantimax"),
+                                m(".entry-row", 
+                                    m(".entry-col-img", 
+                                        m("img.entry-img2", 
+                                            {
+                                                src: "https://www.serebii.net/swordshield/pokemon/" 
+                                                + Pokemon.addZeroes(Pokemon.getId()) + "-gi.png" 
+                                            } 
+                                        )
+                                    ),
+                                    m(".entry-col-img", 
+                                        m("img.entry-img2", 
+                                            {
+                                                src: "https://www.serebii.net/Shiny/SWSH/" 
+                                                + Pokemon.addZeroes(Pokemon.getId()) + "-gi.png" 
+                                            }
+                                        )
+                                    )                        
+                                ),
+                                m(".entry-row", 
+                                    m(".entry-col", 
+                                        m(".label2", "Normal")
+                                    ),
+                                    m(".entry-col", 
+                                        m(".label2", "Shiny")
+                                    )
+                                ) 
+                            ] : [
+
+
+
+                                m(".label", "Eternamax"),
+                                m(".entry-row", 
+                                    m(".entry-col-img", 
+                                        m("img.entry-img2", 
+                                            {
+                                                src: "https://www.serebii.net/swordshield/pokemon/890-e.png" 
+                                            } 
+                                        )
+                                    ),
+                                    m(".entry-col-img", 
+                                        m("img.entry-img2", 
+                                            {
+                                                src: "https://www.serebii.net/Shiny/SWSH/890-e.png" 
+                                            }
+                                        )
+                                    )                        
+                                ),
+                                m(".entry-row", 
+                                    m(".entry-col", 
+                                        m(".label2", "Normal")
+                                    ),
+                                    m(".entry-col", 
+                                        m(".label2", "Shiny")
+                                    )
+                                ) 
+
+                            ]
+                        )
+                    )
+                ]:[],
+                mega ? [
+                    Pokemon.getHas2Megas() ? [
+
+                        // m(".entry-row",
+                        
+                        //     m(".entry-col-img3", 
+                        //         m(".entry-row", 
+                        //             m(".entry-col-img2", 
+                        //                 m("img.entry-img"
+                        //                     , {src: "https://www.serebii.net/swordshield/pokemon/" 
+                        //                         + Pokemon.addZeroes(Pokemon.getId()) + ".png" 
+                        //                     } 
+                        //                 )
+                        //             ),
+                        //             m(".entry-col-img2", 
+                        //                 m("img.entry-img"
+                        //                     , {src: "https://www.serebii.net/Shiny/SWSH/" 
+                        //                         + Pokemon.addZeroes(Pokemon.getId()) + ".png" 
+                        //                     }
+                        //                 )
+                        //             )                        
+                        //         ),
+                        //         m(".entry-row", 
+                        //             m(".entry-col", 
+                        //                 m(".label2", "Normal")
+                        //             ),
+                        //             m(".entry-col", 
+                        //                 m(".label2", "Shiny")
+                        //             )
+                        //         )
+                        //     ),
+                        //     m(".entry-col-img3", 
+                        //         m(".entry-row", 
+                        //             m(".entry-col-img2", 
+                        //                 m("img.entry-img"
+                        //                     , {src: "https://www.serebii.net/swordshield/pokemon/" 
+                        //                         + Pokemon.addZeroes(Pokemon.getId()) + ".png" 
+                        //                     } 
+                        //                 )
+                        //             ),
+                        //             m(".entry-col-img2", 
+                        //                 m("img.entry-img"
+                        //                     , {src: "https://www.serebii.net/Shiny/SWSH/" 
+                        //                         + Pokemon.addZeroes(Pokemon.getId()) + ".png" 
+                        //                     }
+                        //                 )
+                        //             )                        
+                        //         ),
+                        //         m(".entry-row", 
+                        //             m(".entry-col", 
+                        //                 m(".label2", "Normal")
+                        //             ),
+                        //             m(".entry-col", 
+                        //                 m(".label2", "Shiny")
+                        //             )
+                        //         )
+                        //     )
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        // )
+
+
+                        m(".evo-row",
+                            m(".evo-data", 
+                                m(".label", "Mega-Evolution X"),
+                                m(".entry-row", 
+                                    m(".entry-col-img", 
+                                        m("img.entry-img2", 
+                                            {
+                                                src: "https://www.serebii.net/sunmoon/pokemon/" 
+                                                + Pokemon.addZeroes(Pokemon.getId()) + "-mx.png" 
+                                            } 
+                                        )
+                                    ),
+                                    m(".entry-col-img", 
+                                        m("img.entry-img2", 
+                                            {
+                                                src: "https://www.serebii.net/Shiny/XY/" 
+                                                + Pokemon.addZeroes(Pokemon.getId()) + "-mx.png" 
+                                            }
+                                        )
+                                    )                        
+                                ),
+                                m(".entry-row", 
+                                    m(".entry-col", 
+                                        m(".label2", "Normal")
+                                    ),
+                                    m(".entry-col", 
+                                        m(".label2", "Shiny")
+                                    )
+                                )
+                            )
+                        ),
+                        m(".evo-row",
+                            m(".evo-data", 
+                                m(".label", "Mega-Evolution Y"),
+                                m(".entry-row", 
+                                    m(".entry-col-img", 
+                                        m("img.entry-img2", 
+                                            {
+                                                src: "https://www.serebii.net/sunmoon/pokemon/" 
+                                                + Pokemon.addZeroes(Pokemon.getId()) + "-my.png" 
+                                            } 
+                                        )
+                                    ),
+                                    m(".entry-col-img", 
+                                        m("img.entry-img2", 
+                                            {
+                                                src: "https://www.serebii.net/Shiny/XY/" 
+                                                + Pokemon.addZeroes(Pokemon.getId()) + "-my.png" 
+                                            }
+                                        )
+                                    )                        
+                                ),
+                                m(".entry-row", 
+                                    m(".entry-col", 
+                                        m(".label2", "Normal")
+                                    ),
+                                    m(".entry-col", 
+                                        m(".label2", "Shiny")
+                                    )
+                                )
+                            )
+                        )
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    ] : [
+
+
+
+
+                        m(".evo-row",
+                            m(".evo-data", 
+                                m(".label", "Mega-Evolution"),
+                                m(".entry-row", 
+                                    m(".entry-col-img", 
+                                        m("img.entry-img2", 
+                                            {
+                                                src: "https://www.serebii.net/sunmoon/pokemon/" 
+                                                + Pokemon.addZeroes(Pokemon.getId()) + "-m.png" 
+                                            } 
+                                        )
+                                    ),
+                                    m(".entry-col-img", 
+                                        m("img.entry-img2", 
+                                            {
+                                                src: "https://www.serebii.net/Shiny/XY/" 
+                                                + Pokemon.addZeroes(Pokemon.getId()) + "-m.png" 
+                                            }
+                                        )
+                                    )                        
+                                ),
+                                m(".entry-row", 
+                                    m(".entry-col", 
+                                        m(".label2", "Normal")
+                                    ),
+                                    m(".entry-col", 
+                                        m(".label2", "Shiny")
+                                    )
+                                )
+                            )
+                        )
+
+
+
+
+
+                    ]
+                    // m(".evo-row",
+                    //     m(".evo-data", 
+                    //         m(".label", "Mega-Evolution"),
+                    //         m(".entry-row", 
+                    //             m(".entry-col-img", 
+                    //                 m("img.entry-img", 
+                    //                     {
+                    //                         src: "https://www.serebii.net/sunmoon/pokemon/" 
+                    //                         + Pokemon.addZeroes(Pokemon.getId()) + "-m.png" 
+                    //                     } 
+                    //                 )
+                    //             ),
+                    //             m(".entry-col-img", 
+                    //                 m("img.entry-img", 
+                    //                     {
+                    //                         src: "https://www.serebii.net/Shiny/XY/" 
+                    //                         + Pokemon.addZeroes(Pokemon.getId()) + "-m.png" 
+                    //                     }
+                    //                 )
+                    //             )                        
+                    //         ),
+                    //         m(".entry-row", 
+                    //             m(".entry-col", 
+                    //                 m(".label2", "Normal")
+                    //             ),
+                    //             m(".entry-col", 
+                    //                 m(".label2", "Shiny")
+                    //             )
+                    //         )
+                    //     )
+                    // )
+                ]:[] 
             )
         )
     }
