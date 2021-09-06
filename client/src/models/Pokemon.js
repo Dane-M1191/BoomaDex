@@ -131,23 +131,21 @@ var Pokemon = {
             let evoURL = result.evolution_chain.url
             Pokemon.setClass(result.genera[7].genus)
 
-            let n = 0
-            for (str of result.flavor_text_entries) {
-                if (str.language.name == "en") {n++}
-            }
-            
-            Pokemon.setFlavorText("")
-            let i = 0
+            let str1 = ""
+            let str2 = ""
             let j = 0
+            Pokemon.setFlavorText("")
             for (str of result.flavor_text_entries) {
-                if (str.language.name == "en" && j < 1 && i <= n) {
-                    Pokemon.setFlavorText(str.flavor_text)
+                if (str.language.name == "en" && j < 1) {
+                    str1 = str.flavor_text
                     j++
-                }
-                i++
+                } else if (str.language.name == "en" && j < 2 && str.flavor_text != str1) {
+                    str2 = str.flavor_text
+                    j++
+                } 
             }
-            Pokemon.setFlavorText(Pokemon.cleanString(Pokemon.getFlavorText()))
-            
+            Pokemon.setFlavorText(Pokemon.cleanString(str1) + Pokemon.cleanString(str2))
+        
             Pokemon.setFemaleChance(result.gender_rate)
             Pokemon.setMaleChance(100 - Pokemon.getFemaleChance())
             Pokemon.setEggSteps(result.hatch_counter)
@@ -187,8 +185,6 @@ var Pokemon = {
                     Pokemon.setHas2Megas(true)
                 }
             }
-            // console.log(megaNumber)
-            // console.log("2 megas: " + Pokemon.getHas2Megas())
             return evoURL
         })
         .then(function(evoURL) {
@@ -268,51 +264,47 @@ var Pokemon = {
     },
 
     cleanString: function(text) {
+
         let str2 = ""
         let str3 = ""
         let str4 = ""
         let str5 = ""
         let str6 = ""
+        let str7 = ""
+
         for (str of text.split("")) {
             str2 += str + " "
         }
-
         for (str of str2.split("\n")) {
             str3 += str + " "
         }
-
         for (str of str3.split("    ")) {
             str4 += str + ""
         }
 
-        console.log(str4)
-
-
         for (str of str4.split(". ")) {
+
             str5 += Pokemon.nameCaps(str.split(" ")[0])
         
             for (let i = 1; i < str.split(" ").length; i ++) {
                 
-                    console.log(str.split(" ")[i])
-                    str5 += " " + str.split(" ")[i].toLowerCase()
-                
-                 
-
-                    if (i >= str.split(" ").length-1) {str5 += ". "}
+                console.log(str.split(" ")[i])
+                str5 += " " + str.split(" ")[i].toLowerCase()
+            
+                if (i >= str.split(" ").length-1) {
+                    str5 += ". "
+                }
             }
-            // str5 += "."
         }
 
         for (str of str5.split(".  . ")) {
             str6 += str 
-
+        }
+        for (str of str6.split("-")) {
+            str7 += str  
         }
 
-
-    
-        console.log(str6)
-
-        return str6
+        return str7 + ". "
     },
 
     nameCaps: function (name) {

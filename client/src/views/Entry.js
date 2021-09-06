@@ -220,7 +220,7 @@ module.exports = {
                         m(".label", "Flavor Text"),
                         m(".entry-row", 
                             m(".entry-col", 
-                                m(".entry-data", Pokemon.getFlavorText() + Pokemon.getFlavorText() + Pokemon.getFlavorText())
+                                m(".entry-data", Pokemon.getFlavorText())
                             )                            
                         )
                     )
