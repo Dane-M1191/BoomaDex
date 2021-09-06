@@ -156,12 +156,18 @@ module.exports = {
                             )
                         ),
                         m(".entry-row", 
-                            m(".entry-col", 
-                                m(".entry-data", "Male Chance: " + Pokemon.getMaleChance() + "%")
-                            ), 
-                            m(".entry-col", 
-                                m(".entry-data", "Female Chance: " + Pokemon.getFemaleChance() + "%")
-                            )
+                            Pokemon.getFemaleChance() != -12.5 ? [
+                                m(".entry-col", 
+                                    m(".entry-data", "Male Chance: " + Pokemon.getMaleChance() + "%")
+                                ), 
+                                m(".entry-col", 
+                                    m(".entry-data", "Female Chance: " + Pokemon.getFemaleChance() + "%")
+                                )
+                            ] : [
+                                m(".entry-col", 
+                                    m(".entry-data", "Genderless")
+                                )
+                            ]
                         ),
                         m(".entry-row", 
                             m(".entry-col", 
@@ -322,18 +328,11 @@ module.exports = {
                         )  
                     )  
                 ), 
+                //Gigantix img----------------------------------------------------------------------------------------------
                 giga ? [
                     m(".evo-row",
                         m(".evo-data", 
                             Pokemon.getId() != 890 ? [
-
-
-
-
-
-
-
-
                                 m(".label", "Gigantimax"),
                                 m(".entry-row", 
                                     m(".entry-col-img", 
@@ -362,9 +361,6 @@ module.exports = {
                                     )
                                 ) 
                             ] : [
-
-
-
                                 m(".label", "Eternamax"),
                                 m(".entry-row", 
                                     m(".entry-col-img", 
@@ -395,73 +391,9 @@ module.exports = {
                         )
                     )
                 ]:[],
+                //Mega Evolution img----------------------------------------------------------------------------------------------
                 mega ? [
                     Pokemon.getHas2Megas() ? [
-
-                        // m(".entry-row",
-                        
-                        //     m(".entry-col-img3", 
-                        //         m(".entry-row", 
-                        //             m(".entry-col-img2", 
-                        //                 m("img.entry-img"
-                        //                     , {src: "https://www.serebii.net/swordshield/pokemon/" 
-                        //                         + Pokemon.addZeroes(Pokemon.getId()) + ".png" 
-                        //                     } 
-                        //                 )
-                        //             ),
-                        //             m(".entry-col-img2", 
-                        //                 m("img.entry-img"
-                        //                     , {src: "https://www.serebii.net/Shiny/SWSH/" 
-                        //                         + Pokemon.addZeroes(Pokemon.getId()) + ".png" 
-                        //                     }
-                        //                 )
-                        //             )                        
-                        //         ),
-                        //         m(".entry-row", 
-                        //             m(".entry-col", 
-                        //                 m(".label2", "Normal")
-                        //             ),
-                        //             m(".entry-col", 
-                        //                 m(".label2", "Shiny")
-                        //             )
-                        //         )
-                        //     ),
-                        //     m(".entry-col-img3", 
-                        //         m(".entry-row", 
-                        //             m(".entry-col-img2", 
-                        //                 m("img.entry-img"
-                        //                     , {src: "https://www.serebii.net/swordshield/pokemon/" 
-                        //                         + Pokemon.addZeroes(Pokemon.getId()) + ".png" 
-                        //                     } 
-                        //                 )
-                        //             ),
-                        //             m(".entry-col-img2", 
-                        //                 m("img.entry-img"
-                        //                     , {src: "https://www.serebii.net/Shiny/SWSH/" 
-                        //                         + Pokemon.addZeroes(Pokemon.getId()) + ".png" 
-                        //                     }
-                        //                 )
-                        //             )                        
-                        //         ),
-                        //         m(".entry-row", 
-                        //             m(".entry-col", 
-                        //                 m(".label2", "Normal")
-                        //             ),
-                        //             m(".entry-col", 
-                        //                 m(".label2", "Shiny")
-                        //             )
-                        //         )
-                        //     )
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        // )
-
-
                         m(".evo-row",
                             m(".evo-data", 
                                 m(".label", "Mega-Evolution X"),
@@ -524,24 +456,7 @@ module.exports = {
                                 )
                             )
                         )
-
-
-
-
-
-
-
-
-
-
-
-
-
                     ] : [
-
-
-
-
                         m(".evo-row",
                             m(".evo-data", 
                                 m(".label", "Mega-Evolution"),
@@ -573,43 +488,7 @@ module.exports = {
                                 )
                             )
                         )
-
-
-
-
-
                     ]
-                    // m(".evo-row",
-                    //     m(".evo-data", 
-                    //         m(".label", "Mega-Evolution"),
-                    //         m(".entry-row", 
-                    //             m(".entry-col-img", 
-                    //                 m("img.entry-img", 
-                    //                     {
-                    //                         src: "https://www.serebii.net/sunmoon/pokemon/" 
-                    //                         + Pokemon.addZeroes(Pokemon.getId()) + "-m.png" 
-                    //                     } 
-                    //                 )
-                    //             ),
-                    //             m(".entry-col-img", 
-                    //                 m("img.entry-img", 
-                    //                     {
-                    //                         src: "https://www.serebii.net/Shiny/XY/" 
-                    //                         + Pokemon.addZeroes(Pokemon.getId()) + "-m.png" 
-                    //                     }
-                    //                 )
-                    //             )                        
-                    //         ),
-                    //         m(".entry-row", 
-                    //             m(".entry-col", 
-                    //                 m(".label2", "Normal")
-                    //             ),
-                    //             m(".entry-col", 
-                    //                 m(".label2", "Shiny")
-                    //             )
-                    //         )
-                    //     )
-                    // )
                 ]:[] 
             )
         )
